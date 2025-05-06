@@ -1,0 +1,967 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://purl.org/cerif/frapo", "http://www.diamond-project.org/ontology", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://data.europa.eu/s66" ],
+    "iri" : "http://www.diamond-project.org/ontology",
+    "version" : "0.1",
+    "comments" : {
+      "undefined" : "Diamond Project Ontology - Initial Version"
+    },
+    "other" : {
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.1",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "48",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "6",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.diamond-project.org/ontology#Person",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "id" : "0"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Resource",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resource",
+      "undefined" : "Resource"
+    },
+    "subClasses" : [ "3", "4" ],
+    "comment" : {
+      "undefined" : "Resources used or produced in the project"
+    },
+    "id" : "1",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Partner",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Partner",
+      "undefined" : "Partner"
+    },
+    "comment" : {
+      "undefined" : "Institution participating in the project"
+    },
+    "id" : "7",
+    "superClasses" : [ "8", "2" ]
+  }, {
+    "iri" : "http://data.europa.eu/s66#Organisation",
+    "baseIri" : "http://data.europa.eu/s66",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organisation"
+    },
+    "subClasses" : [ "7" ],
+    "attributes" : [ "external" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Commercial",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Commercial",
+      "undefined" : "Commercial"
+    },
+    "comment" : {
+      "undefined" : "Commercial Software"
+    },
+    "id" : "25",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#OpenSource",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OpenSource",
+      "undefined" : "Open-source"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.diamond-project.org/ontology#Guix",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "Guix"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#MongoDB",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "annotations" : {
+        "isUsedForDevelopment" : [ {
+          "identifier" : "isUsedForDevelopment",
+          "language" : "undefined",
+          "value" : "http://www.diamond-project.org/ontology#Database",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MongoDB"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#Apptainer",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "Apptainer"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#BigDFTsim",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "annotations" : {
+        "isUsedForDevelopment" : [ {
+          "identifier" : "isUsedForDevelopment",
+          "language" : "undefined",
+          "value" : "http://www.diamond-project.org/ontology#AtomisticNumericalSimulationDB",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "BigDFTsim"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "Open-source Software"
+    },
+    "id" : "23",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Private",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Private",
+      "undefined" : "Private"
+    },
+    "comment" : {
+      "undefined" : "Private Software"
+    },
+    "id" : "17",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "http://data.europa.eu/s66#ExploitableResult",
+    "baseIri" : "http://data.europa.eu/s66",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ExploitableResult"
+    },
+    "subClasses" : [ "4" ],
+    "attributes" : [ "external" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "48",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "49",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "6",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "51",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#ProjectPerson",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProjectPerson",
+      "undefined" : "Person"
+    },
+    "comment" : {
+      "undefined" : "A person working on the project"
+    },
+    "id" : "27",
+    "superClasses" : [ "2", "40" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "32",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "0", "4" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "52"
+  }, {
+    "iri" : "http://data.europa.eu/s66#Person",
+    "baseIri" : "http://data.europa.eu/s66",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "subClasses" : [ "27" ],
+    "attributes" : [ "external" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Competence",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Competence",
+      "undefined" : "Competence"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.diamond-project.org/ontology#Containerization",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "Containerization"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#DatabaseInfrastructure",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "DatabaseInfrastructure"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#MOF",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "MOF"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#MLIP",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "MLIP"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#WebDevelopment",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "WebDevelopment"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#AiidaWorkflows",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "AiidaWorkflows"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#LargeScaleWorkflows",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "LargeScaleWorkflows"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#AIApproaches",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "AIApproaches"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A specific skill or area of expertise"
+    },
+    "id" : "38",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "10",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "55",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Diamond",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Diamond",
+      "undefined" : "DIAMOND project"
+    },
+    "subClasses" : [ "38", "1", "19", "7", "12", "27" ],
+    "comment" : {
+      "undefined" : "Top-level class for all entities in the Diamond ontology"
+    },
+    "id" : "2"
+  }, {
+    "iri" : "http://purl.org/cerif/frapo/Endeavour",
+    "baseIri" : "http://purl.org/cerif/frapo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Endeavour"
+    },
+    "subClasses" : [ "19" ],
+    "attributes" : [ "external" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Software",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Software",
+      "undefined" : "Software"
+    },
+    "subClasses" : [ "17", "25", "23" ],
+    "comment" : {
+      "undefined" : "All Software"
+    },
+    "id" : "3",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#WorkPackage",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WorkPackage",
+      "undefined" : "WorkPackage"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.diamond-project.org/ontology#WP3",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "WP3"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#WP2",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "WP2"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#WP1",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "WP1"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A work package within the project"
+    },
+    "id" : "19",
+    "superClasses" : [ "21", "2" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Product",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Product",
+      "undefined" : "Product"
+    },
+    "subClasses" : [ "15" ],
+    "comment" : {
+      "undefined" : "Products produced in the project"
+    },
+    "id" : "4",
+    "superClasses" : [ "1", "45" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Deliverable",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Deliverable",
+      "undefined" : "Deliverable"
+    },
+    "comment" : {
+      "undefined" : "A formal deliverable of the project"
+    },
+    "id" : "12",
+    "superClasses" : [ "13", "2" ]
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#Database",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Database",
+      "undefined" : "Database"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.diamond-project.org/ontology#MLIPDB",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "MLIPDB"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#Fast2NanoDB",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "Fast2NanoDB"
+      }
+    }, {
+      "iri" : "http://www.diamond-project.org/ontology#AtomisticNumericalSimulationDB",
+      "baseIri" : "http://www.diamond-project.org/ontology",
+      "labels" : {
+        "IRI-based" : "AtomisticNumericalSimulationDB"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "Databases"
+    },
+    "id" : "15",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://data.europa.eu/s66#ProjectDeliverable",
+    "baseIri" : "http://data.europa.eu/s66",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProjectDeliverable"
+    },
+    "subClasses" : [ "12" ],
+    "attributes" : [ "external" ],
+    "id" : "13"
+  } ],
+  "property" : [ {
+    "id" : "5",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "14",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "31",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "53",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "56",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "57",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "59",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.diamond-project.org/ontology#startDate",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "startDate",
+      "undefined" : "startDate"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The start date of the project"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#comment",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "comment",
+      "undefined" : "comment"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "9"
+  }, {
+    "range" : "13",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "11"
+  }, {
+    "range" : "4",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "14"
+  }, {
+    "range" : "3",
+    "domain" : "17",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#hasWorkPackage",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "hasWorkPackage",
+      "undefined" : "hasWorkPackage"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Relates a project to its work packages"
+    },
+    "attributes" : [ "object" ],
+    "id" : "18"
+  }, {
+    "range" : "21",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "20"
+  }, {
+    "range" : "3",
+    "domain" : "23",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "22"
+  }, {
+    "range" : "3",
+    "domain" : "25",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#createDeliverable",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "createDeliverable",
+      "undefined" : "createDeliverable"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "Relates a person to the deliverables they create"
+    },
+    "attributes" : [ "object" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#email",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "email",
+      "undefined" : "email"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "The email address of a person"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#hasPerson",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "hasPerson",
+      "undefined" : "hasPerson"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Relates a partner to the people working there"
+    },
+    "attributes" : [ "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#belongsToToolCategory",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "belongsToToolCategory",
+      "undefined" : "belongsToToolCategory"
+    },
+    "domain" : "32",
+    "comment" : {
+      "undefined" : "Categorizes a tool into a specific tool category"
+    },
+    "attributes" : [ "object" ],
+    "id" : "31"
+  }, {
+    "range" : "2",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#worksOn",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "worksOn",
+      "undefined" : "worksOn"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "Relates a person to the work package they work on"
+    },
+    "attributes" : [ "object" ],
+    "id" : "34"
+  }, {
+    "range" : "2",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "35"
+  }, {
+    "range" : "2",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "36"
+  }, {
+    "range" : "2",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "37"
+  }, {
+    "range" : "40",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "range" : "2",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "41"
+  }, {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "42"
+  }, {
+    "range" : "1",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "range" : "45",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "44"
+  }, {
+    "range" : "8",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#deliversDeliverable",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "deliversDeliverable",
+      "undefined" : "deliversDeliverable"
+    },
+    "domain" : "19",
+    "comment" : {
+      "undefined" : "Relates a work package to its deliverables"
+    },
+    "attributes" : [ "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#produces",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "produces",
+      "undefined" : "produces"
+    },
+    "domain" : "19",
+    "comment" : {
+      "undefined" : "Relates a work package to the products it produces"
+    },
+    "attributes" : [ "object" ],
+    "id" : "50"
+  }, {
+    "range" : "1",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#endDate",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "48",
+    "label" : {
+      "IRI-based" : "endDate",
+      "undefined" : "endDate"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The end date of the project"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "54"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#version",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "51",
+    "label" : {
+      "IRI-based" : "version",
+      "undefined" : "version"
+    },
+    "domain" : "4",
+    "comment" : {
+      "undefined" : "The version of a tool"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "56"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#name",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "name",
+      "undefined" : "name"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The name of the entity"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#develops",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "develops",
+      "undefined" : "develops"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "Relates a person to the products they develop"
+    },
+    "attributes" : [ "object" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#hasCompetence",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "hasCompetence",
+      "undefined" : "hasCompetence"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "Relates a person to their competences"
+    },
+    "attributes" : [ "object" ],
+    "id" : "59"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#description",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "55",
+    "label" : {
+      "IRI-based" : "description",
+      "undefined" : "description"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "A description of the entity"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#hasPartner",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "hasPartner",
+      "undefined" : "hasPartner"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Relates a project to its partner institutions"
+    },
+    "attributes" : [ "object" ],
+    "id" : "61"
+  }, {
+    "iri" : "http://www.diamond-project.org/ontology#usesTool",
+    "baseIri" : "http://www.diamond-project.org/ontology",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "usesTool",
+      "undefined" : "usesTool"
+    },
+    "domain" : "52",
+    "comment" : {
+      "undefined" : "Relates a person or product to the tools they use"
+    },
+    "attributes" : [ "object" ],
+    "id" : "62"
+  } ]
+}

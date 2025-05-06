@@ -1,0 +1,435 @@
+@prefix : <http://www.diamond-project.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.diamond-project.org/ontology#> .
+
+<http://www.diamond-project.org/ontology> rdf:type owl:Ontology ;
+                                           rdfs:comment "Diamond Project Ontology - Initial Version" ;
+                                           owl:versionInfo "0.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.diamond-project.org/ontology#isUsedForDevelopment
+:isUsedForDevelopment rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.diamond-project.org/ontology#belongsToToolCategory
+:belongsToToolCategory rdf:type owl:ObjectProperty ;
+                       rdfs:comment "Categorizes a tool into a specific tool category" ;
+                       rdfs:label "belongsToToolCategory" .
+
+
+###  http://www.diamond-project.org/ontology#createDeliverable
+:createDeliverable rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ProjectPerson ;
+                   rdfs:range :Deliverable ;
+                   rdfs:comment "Relates a person to the deliverables they create" ;
+                   rdfs:label "createDeliverable" .
+
+
+###  http://www.diamond-project.org/ontology#deliversDeliverable
+:deliversDeliverable rdf:type owl:ObjectProperty ;
+                     rdfs:domain :WorkPackage ;
+                     rdfs:range :Deliverable ;
+                     rdfs:comment "Relates a work package to its deliverables" ;
+                     rdfs:label "deliversDeliverable" .
+
+
+###  http://www.diamond-project.org/ontology#develops
+:develops rdf:type owl:ObjectProperty ;
+          rdfs:domain :ProjectPerson ;
+          rdfs:range :Product ;
+          rdfs:comment "Relates a person to the products they develop" ;
+          rdfs:label "develops" .
+
+
+###  http://www.diamond-project.org/ontology#hasCompetence
+:hasCompetence rdf:type owl:ObjectProperty ;
+               rdfs:domain :ProjectPerson ;
+               rdfs:range :Competence ;
+               rdfs:comment "Relates a person to their competences" ;
+               rdfs:label "hasCompetence" .
+
+
+###  http://www.diamond-project.org/ontology#hasPartner
+:hasPartner rdf:type owl:ObjectProperty ;
+            rdfs:domain :Diamond ;
+            rdfs:range :Partner ;
+            rdfs:comment "Relates a project to its partner institutions" ;
+            rdfs:label "hasPartner" .
+
+
+###  http://www.diamond-project.org/ontology#hasPerson
+:hasPerson rdf:type owl:ObjectProperty ;
+           rdfs:domain :Partner ;
+           rdfs:range :ProjectPerson ;
+           rdfs:comment "Relates a partner to the people working there" ;
+           rdfs:label "hasPerson" .
+
+
+###  http://www.diamond-project.org/ontology#hasWorkPackage
+:hasWorkPackage rdf:type owl:ObjectProperty ;
+                rdfs:domain :Diamond ;
+                rdfs:range :WorkPackage ;
+                rdfs:comment "Relates a project to its work packages" ;
+                rdfs:label "hasWorkPackage" .
+
+
+###  http://www.diamond-project.org/ontology#produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :WorkPackage ;
+          rdfs:range :Product ;
+          rdfs:comment "Relates a work package to the products it produces" ;
+          rdfs:label "produces" .
+
+
+###  http://www.diamond-project.org/ontology#usesTool
+:usesTool rdf:type owl:ObjectProperty ;
+          rdfs:domain :Person ,
+                      :Product ;
+          rdfs:range :Resource ;
+          rdfs:comment "Relates a person or product to the tools they use" ;
+          rdfs:label "usesTool" .
+
+
+###  http://www.diamond-project.org/ontology#worksOn
+:worksOn rdf:type owl:ObjectProperty ;
+         rdfs:domain :ProjectPerson ;
+         rdfs:range :WorkPackage ;
+         rdfs:comment "Relates a person to the work package they work on" ;
+         rdfs:label "worksOn" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.diamond-project.org/ontology#comment
+:comment rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Resource ;
+         rdfs:range xsd:string ;
+         rdfs:label "comment" .
+
+
+###  http://www.diamond-project.org/ontology#description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Diamond ;
+             rdfs:range xsd:string ;
+             rdfs:comment "A description of the entity" ;
+             rdfs:label "description" .
+
+
+###  http://www.diamond-project.org/ontology#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :ProjectPerson ;
+       rdfs:range xsd:string ;
+       rdfs:comment "The email address of a person" ;
+       rdfs:label "email" .
+
+
+###  http://www.diamond-project.org/ontology#endDate
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Diamond ;
+         rdfs:range xsd:date ;
+         rdfs:comment "The end date of the project" ;
+         rdfs:label "endDate" .
+
+
+###  http://www.diamond-project.org/ontology#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Diamond ;
+      rdfs:range xsd:string ;
+      rdfs:comment "The name of the entity" ;
+      rdfs:label "name" .
+
+
+###  http://www.diamond-project.org/ontology#startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Diamond ;
+           rdfs:range xsd:date ;
+           rdfs:comment "The start date of the project" ;
+           rdfs:label "startDate" .
+
+
+###  http://www.diamond-project.org/ontology#version
+:version rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Product ;
+         rdfs:range xsd:string ;
+         rdfs:comment "The version of a tool" ;
+         rdfs:label "version" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://data.europa.eu/s66#ExploitableResult
+<http://data.europa.eu/s66#ExploitableResult> rdf:type owl:Class .
+
+
+###  http://data.europa.eu/s66#Organisation
+<http://data.europa.eu/s66#Organisation> rdf:type owl:Class .
+
+
+###  http://data.europa.eu/s66#Person
+<http://data.europa.eu/s66#Person> rdf:type owl:Class .
+
+
+###  http://data.europa.eu/s66#ProjectDeliverable
+<http://data.europa.eu/s66#ProjectDeliverable> rdf:type owl:Class .
+
+
+###  http://purl.org/cerif/frapo/Endeavour
+<http://purl.org/cerif/frapo/Endeavour> rdf:type owl:Class .
+
+
+###  http://www.diamond-project.org/ontology#Commercial
+:Commercial rdf:type owl:Class ;
+            rdfs:subClassOf :Software ;
+            rdfs:comment "Commercial Software" ;
+            rdfs:label "Commercial" .
+
+
+###  http://www.diamond-project.org/ontology#Competence
+:Competence rdf:type owl:Class ;
+            rdfs:subClassOf :Diamond ;
+            rdfs:comment "A specific skill or area of expertise" ;
+            rdfs:label "Competence" .
+
+
+###  http://www.diamond-project.org/ontology#Database
+:Database rdf:type owl:Class ;
+          rdfs:subClassOf :Product ;
+          rdfs:comment "Databases" ;
+          rdfs:label "Database" .
+
+
+###  http://www.diamond-project.org/ontology#Deliverable
+:Deliverable rdf:type owl:Class ;
+             rdfs:subClassOf <http://data.europa.eu/s66#ProjectDeliverable> ,
+                             :Diamond ;
+             rdfs:comment "A formal deliverable of the project" ;
+             rdfs:label "Deliverable" .
+
+
+###  http://www.diamond-project.org/ontology#Diamond
+:Diamond rdf:type owl:Class ;
+         rdfs:comment "Top-level class for all entities in the Diamond ontology" ;
+         rdfs:label "DIAMOND project" .
+
+
+###  http://www.diamond-project.org/ontology#OpenSource
+:OpenSource rdf:type owl:Class ;
+            rdfs:subClassOf :Software ;
+            rdfs:comment "Open-source Software" ;
+            rdfs:label "Open-source" .
+
+
+###  http://www.diamond-project.org/ontology#Partner
+:Partner rdf:type owl:Class ;
+         rdfs:subClassOf <http://data.europa.eu/s66#Organisation> ,
+                         :Diamond ;
+         rdfs:comment "Institution participating in the project" ;
+         rdfs:label "Partner" .
+
+
+###  http://www.diamond-project.org/ontology#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.diamond-project.org/ontology#Private
+:Private rdf:type owl:Class ;
+         rdfs:subClassOf :Software ;
+         rdfs:comment "Private Software" ;
+         rdfs:label "Private" .
+
+
+###  http://www.diamond-project.org/ontology#Product
+:Product rdf:type owl:Class ;
+         rdfs:subClassOf <http://data.europa.eu/s66#ExploitableResult> ,
+                         :Resource ;
+         rdfs:comment "Products produced in the project" ;
+         rdfs:label "Product" .
+
+
+###  http://www.diamond-project.org/ontology#ProjectPerson
+:ProjectPerson rdf:type owl:Class ;
+               rdfs:subClassOf <http://data.europa.eu/s66#Person> ,
+                               :Diamond ;
+               rdfs:comment "A person working on the project" ;
+               rdfs:label "Person" .
+
+
+###  http://www.diamond-project.org/ontology#Resource
+:Resource rdf:type owl:Class ;
+          rdfs:subClassOf :Diamond ;
+          rdfs:comment "Resources used or produced in the project" ;
+          rdfs:label "Resource" .
+
+
+###  http://www.diamond-project.org/ontology#Software
+:Software rdf:type owl:Class ;
+          rdfs:subClassOf :Resource ;
+          rdfs:comment "All Software" ;
+          rdfs:label "Software" .
+
+
+###  http://www.diamond-project.org/ontology#WorkPackage
+:WorkPackage rdf:type owl:Class ;
+             rdfs:subClassOf <http://purl.org/cerif/frapo/Endeavour> ,
+                             :Diamond ;
+             rdfs:comment "A work package within the project" ;
+             rdfs:label "WorkPackage" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.diamond-project.org/ontology#AIApproaches
+:AIApproaches rdf:type owl:NamedIndividual ,
+                       :Competence ;
+              :name "AI Approaches" .
+
+
+###  http://www.diamond-project.org/ontology#AiidaWorkflows
+:AiidaWorkflows rdf:type owl:NamedIndividual ,
+                         :Competence ;
+                :name "AiiDA Workflows" .
+
+
+###  http://www.diamond-project.org/ontology#Apptainer
+:Apptainer rdf:type owl:NamedIndividual ,
+                    :OpenSource ;
+           :comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems." ;
+           :name "Apptainer" ;
+           :version "XXX" .
+
+
+###  http://www.diamond-project.org/ontology#AtomisticNumericalSimulationDB
+:AtomisticNumericalSimulationDB rdf:type owl:NamedIndividual ,
+                                         :Database ;
+                                :comment "Database for atomistic numerical simulations" .
+
+
+###  http://www.diamond-project.org/ontology#BigDFTsim
+:BigDFTsim rdf:type owl:NamedIndividual ,
+                    :OpenSource ;
+           :description "BigDFT is an open-source electronic structure code based on density functional theory (DFT) that utilizes Daubechies wavelets as a computational basis. It is designed for ab initio simulations of materials and molecular systems, offering high precision and scalability for large-scale simulations." ;
+           :name "BigDFT" ;
+           :version "XXX" ;
+           :isUsedForDevelopment :AtomisticNumericalSimulationDB .
+
+
+###  http://www.diamond-project.org/ontology#Containerization
+:Containerization rdf:type owl:NamedIndividual ,
+                           :Competence ;
+                  :name "Containerization" .
+
+
+###  http://www.diamond-project.org/ontology#DatabaseInfrastructure
+:DatabaseInfrastructure rdf:type owl:NamedIndividual ,
+                                 :Competence ;
+                        :name "Database Infrastructure" .
+
+
+###  http://www.diamond-project.org/ontology#Fast2NanoDB
+:Fast2NanoDB rdf:type owl:NamedIndividual ,
+                      :Database ;
+             :comment "Fast2Nano database" .
+
+
+###  http://www.diamond-project.org/ontology#Guix
+:Guix rdf:type owl:NamedIndividual ,
+               :OpenSource ;
+      :description "GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software environments. It allows users to define complete software environments that can be shared and replicated across different systems, enhancing reproducibility in software deployment." ;
+      :name "Guix" ;
+      :version "XXX" .
+
+
+###  http://www.diamond-project.org/ontology#LargeScaleWorkflows
+:LargeScaleWorkflows rdf:type owl:NamedIndividual ,
+                              :Competence ;
+                     :name "Large-scale Workflows" .
+
+
+###  http://www.diamond-project.org/ontology#MLIP
+:MLIP rdf:type owl:NamedIndividual ,
+               :Competence ;
+      :name "Machine Learning Interatomic Potentials" .
+
+
+###  http://www.diamond-project.org/ontology#MLIPDB
+:MLIPDB rdf:type owl:NamedIndividual ,
+                 :Database ;
+        :comment "Machine Learning Interatomic Potentials database" .
+
+
+###  http://www.diamond-project.org/ontology#MOF
+:MOF rdf:type owl:NamedIndividual ,
+              :Competence ;
+     :name "Metal-Organic Frameworks" .
+
+
+###  http://www.diamond-project.org/ontology#MongoDB
+:MongoDB rdf:type owl:NamedIndividual ,
+                  :OpenSource ;
+         :description "MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for modern application development." ;
+         :name "MongoDB" ;
+         :version "XXX" ;
+         :isUsedForDevelopment :Database .
+
+
+###  http://www.diamond-project.org/ontology#WP1
+:WP1 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :hasCompetence :Containerization ,
+                    :WebDevelopment ;
+     :usesTool :Apptainer ,
+               :Guix ;
+     :description "Code and workflow platform" ;
+     :name "WP1" .
+
+
+###  http://www.diamond-project.org/ontology#WP2
+:WP2 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :hasCompetence :DatabaseInfrastructure ,
+                    :LargeScaleWorkflows ;
+     :usesTool :MongoDB ;
+     :description "Data management infrastructure" ;
+     :name "WP2" .
+
+
+###  http://www.diamond-project.org/ontology#WP3
+:WP3 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :hasCompetence :MLIP ;
+     :description "Machine Learning Interatomic Potentials" ;
+     :name "WP3" .
+
+
+###  http://www.diamond-project.org/ontology#WebDevelopment
+:WebDevelopment rdf:type owl:NamedIndividual ,
+                         :Competence ;
+                :name "Web Development" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
