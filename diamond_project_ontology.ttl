@@ -1,0 +1,843 @@
+@prefix diam: <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eurio:  <http://data.europa.eu/s66#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#> .
+
+<https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl> rdf:type owl:Ontology ;
+                                           rdfs:comment "Diamond Project Ontology - Initial Version" ;
+                                           owl:versionInfo "0.1" .
+#					   owl:imports <http://data.europa.eu/s66> .
+
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Main Classes
+#################################################################
+
+diam:Project rdf:type owl:Class ;
+    rdfs:label "Project";
+    rdfs:comment """The foundational top-level class encompassing all conceptual 
+    and tangible entities pertinent to the DIAMOND project, under the DIADEM PEPR."""@en .
+#        "https://diamond-diadem.github.io/" ;
+
+
+diam:Partner rdf:type owl:Class ;
+    rdfs:subClassOf eurio:Organisation , diam:Contributor ;
+    rdfs:comment "Institution participating in the project" ;
+    rdfs:label "Partner" .
+
+#eurio:Person
+diam:Person rdf:type owl:Class ;
+    rdfs:subClassOf diam:Contributor ;
+    rdfs:comment "A person working on the project" ;
+    rdfs:label "Person" .
+
+diam:Resource rdf:type owl:Class ;
+    rdfs:comment "Resources used or produced in the project" ;
+    rdfs:label "Resource" .
+
+diam:WorkPackage rdf:type owl:Class ;
+    rdfs:comment "A work package within the project" ;
+    rdfs:label "WorkPackage" .
+
+diam:Competence rdf:type owl:Class ;
+    rdfs:comment "A specific skill or area of expertise" ;
+    rdfs:label "Competence" .
+
+diam:Contributor rdf:type owl:Class ;
+    skos:prefLabel "Contributor" ;
+    rdfs:comment "A person or partner that contributes to a Work Package." .
+
+
+#---------------------------------------------
+#
+#--------------------------------------------
+
+#  ----> Resource <----
+diam:Software rdf:type owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:comment "All Software" ;
+    rdfs:subClassOf diam:Resource .
+
+diam:Product rdf:type owl:Class ;
+    rdfs:subClassOf eurio:ExploitableResult , diam:Resource ;
+    rdfs:comment "Products produced in the project" ;
+    rdfs:label "Product" .
+
+#  ----> Competence <----
+diam:DataManagement a owl:Class ;
+    rdfs:label "Data Management" ;
+    rdfs:comment "Competences related to data management and curation" ;
+    rdfs:subClassOf diam:Competence .
+
+diam:Computational a owl:Class ;
+    rdfs:label "Computational" ;
+    rdfs:comment "Competences related to computational methods and tools" ;
+    rdfs:subClassOf diam:Competence .
+
+diam:Methodological a owl:Class ;
+    rdfs:label "Methodological" ;
+    rdfs:comment "Competences related to methodological approaches" ;
+    rdfs:subClassOf diam:Competence .
+
+
+#  ----> Software <----
+diam:OpenSource a owl:Class ;
+    rdfs:label "Open-source" ;
+    rdfs:comment "Open source software" ;
+    rdfs:subClassOf diam:Software .
+
+diam:Commercial rdf:type owl:Class ;
+    rdfs:subClassOf diam:Software ;
+    rdfs:comment "Commercial Software" ;
+    rdfs:label "Commercial" .
+
+diam:Private rdf:type owl:Class ;
+    rdfs:subClassOf diam:Software ;
+    rdfs:comment "Private Software" ;
+    rdfs:label "Private" .
+
+
+#  ----> Product <----
+diam:Database rdf:type owl:Class ;
+    rdfs:label "Database" ;
+    rdfs:comment "A database created as a product" ;
+    rdfs:subClassOf diam:Product .
+
+diam:Webpage rdf:type owl:Class ;
+    rdfs:label "Webpage" ;
+    rdfs:comment "A webpage created as a product" ;
+    rdfs:subClassOf diam:Product .
+
+diam:ContainerizedCode rdf:type owl:Class ;
+    rdfs:subClassOf diam:Product ;
+    skos:prefLabel "Containerized Codes" ;
+    rdfs:comment "A containerized code created as a product" .    
+
+diam:ScientificComputing rdf:type owl:Class ;
+    rdfs:subClassOf diam:ContainerizedCode ;
+    skos:prefLabel "Scientific Computing" ;
+    rdfs:comment "Containerized software used for scientific computing" .
+
+diam:Visualization rdf:type owl:Class ;
+    rdfs:label "Visualization" ;
+    rdfs:comment "Contenarized software used for visualization" ;
+    rdfs:subClassOf diam:ContainerizedCode .
+
+
+#-------------------
+diam:SoftwareComponent rdf:type owl:Class ;
+    rdfs:comment "A software module, service, or component forming part of a bigger infrastructure." ;
+    skos:prefLabel "Software component" .
+
+diam:UserInterface rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "User interface" .
+
+diam:BackendService rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "Backend service" .
+
+diam:StorageService rdf:type owl:Class ;
+    rdfs:subClassOf diam:SoftwareComponent ;
+    skos:prefLabel "Storage service" .
+
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+diam:hasContributor rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Contributor ;
+    skos:prefLabel "has contributor" ;
+    rdfs:comment "Indicates that a Work Package involves a person or partner as a contributor." .
+
+diam:isContributorOf rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Contributor ;
+    rdfs:range diam:WorkPackage ;
+    owl:inverseOf diam:hasContributor ;
+    skos:prefLabel "is contributor of" .
+
+diam:develops rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a person to the products they develop" ;
+    rdfs:label "develops" .
+
+diam:hasCompetence rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Competence ;
+    rdfs:comment "Relates a person to their competences" ;
+    rdfs:label "hasCompetence" .
+
+diam:hasPartner rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Project  ;
+    rdfs:range diam:Partner ;
+    rdfs:comment "Relates a project to its partner institutions" ;
+    rdfs:label "hasPartner" .
+ 
+diam:employedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:Partner ;
+    skos:prefLabel "employed by" ;
+    owl:inverseOf diam:employs .
+
+diam:employs a owl:ObjectProperty ;
+    skos:prefLabel "employs" ;
+    rdfs:domain diam:Partner ;
+    rdfs:range diam:Person ;
+    owl:inverseOf diam:employedBy .
+
+diam:hasWorkPackage rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Project ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a project to its work packages" ;
+    rdfs:label "hasWorkPackage" .
+
+diam:produces rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a work package to the products it produces" ;
+    rdfs:label "produces" .
+
+diam:gathersCompetence rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Competence ;
+    owl:inverseOf diam:isPartOfWP ;
+    skos:prefLabel "gathers competence" ;
+    rdfs:comment "Indicates that a Work Package gatheres specific competence to be carried out." .
+
+diam:isPartOfWP rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Competence ;
+    rdfs:range diam:WorkPackage ;
+    skos:prefLabel "is part of WP" ;
+    rdfs:comment "Indicates that a competence is part of a specific Work Package." .
+
+diam:usesTool rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person , diam:Product ;
+    rdfs:range diam:Resource ;
+    rdfs:comment "Relates a person or product to the tools they use" ;
+    rdfs:label "usesTool" .
+
+diam:worksOn rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a person to the work package they work on" ;
+    rdfs:label "worksOn" .
+
+diam:partOf rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range owl:Thing .
+
+diam:ledBy a owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Partner .
+
+diam:coLedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Person ;
+    skos:prefLabel "co-led by" ;
+    rdfs:comment "Indicates a co-coordinator of a Work Package." .
+
+diam:isUsedForDevelopment rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Resource ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a resource to the products it is used to develop" ;
+    rdfs:label "isUsedForDevelopment" .
+    
+diam:hasComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Product ;
+    rdfs:range diam:SoftwareComponent ;
+    rdfs:comment "Indicates that a product or infrastructure includes a software component." ;
+    skos:prefLabel "has component" .
+
+diam:isComponentOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf diam:hasComponent ;
+    skos:prefLabel "is component of" .
+
+#################################################################
+#    Task Class and Properties
+#################################################################
+
+diam:Task rdf:type owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:comment "A specific task within a work package. Tasks represent the most granular level of work organization and are directly responsible for producing specific products or deliverables." .
+ 
+
+# ----> Object Properties for Task <----
+
+diam:hasTask rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:WorkPackage ;
+    rdfs:range diam:Task ;
+    rdfs:comment "Relates a work package to its constituent tasks" ;
+    rdfs:label "hasTask" ;
+    owl:inverseOf diam:isTaskOf .
+
+diam:isTaskOf rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:WorkPackage ;
+    rdfs:comment "Relates a task to the work package it belongs to" ;
+    rdfs:label "isTaskOf" ;
+    owl:inverseOf diam:hasTask .
+
+diam:taskLead rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Person ;
+    rdfs:comment "Relates a task to the person who leads it" ;
+    rdfs:label "taskLead" .
+
+diam:taskCoLead rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Person ;
+    rdfs:comment "Relates a task to a person who co-leads it. A task can have multiple co-leads." ;
+    rdfs:label "taskCoLead" .
+
+diam:taskProduces rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range diam:Product ;
+    rdfs:comment "Relates a task to the specific product(s) it produces. This is the most granular level of product attribution in the project." ;
+    rdfs:label "taskProduces" .
+
+
+# ----> Data Properties for Task <----
+
+diam:taskName rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Task ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The name of the task" ;
+    rdfs:label "taskName" .
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  To be checked!!!!!!!!!!!!!!!!!!!!!
+diam:comment rdf:type owl:DatatypeProperty ;
+         rdfs:domain diam:Resource ;
+         rdfs:range xsd:string ;
+         rdfs:label "comment" .
+
+diam:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain diam:Project ;
+             rdfs:range xsd:string ;
+             rdfs:comment "A description of the entity" ;
+             rdfs:label "description" .
+
+
+diam:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain diam:Person ;
+       rdfs:range xsd:string ;
+       rdfs:comment "The email address of a person" ;
+       rdfs:label "email" .
+
+diam:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain diam:Project ;
+         rdfs:range xsd:date ;
+         rdfs:comment "The end date of the project" ;
+         rdfs:label "endDate" .
+
+diam:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain diam:Project ;
+           rdfs:range xsd:date ;
+           rdfs:comment "The start date of the project" ;
+           rdfs:label "startDate" .
+
+diam:version rdf:type owl:DatatypeProperty ;
+         rdfs:domain diam:Resource ;
+         rdfs:range xsd:string ;
+         rdfs:comment "The version of a tool" ;
+         rdfs:label "version" .
+
+diam:hasURL rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "A URL pointing to the official webpage or external resource of an entity." ;
+    skos:prefLabel "has URL" .
+
+
+
+
+#################################################################
+#    Canonical Instances of the DIAMOND project
+#################################################################
+
+diam:Diamond rdf:type diam:Project ;
+    rdfs:label "DIAMOND Project" ;
+    skos:prefLabel "Ontology representing all entities of the DIAMOND project" .
+
+
+# ----> Instances of WPs <----
+diam:WP1 rdf:type diam:WorkPackage ;
+    diam:partOf diam:Diamond ;
+    diam:gathersCompetence diam:Containerization , 
+                           diam:WebDevelopment ,
+                           diam:AIApproaches ,
+                           diam:GuixPackaging ,
+			   diam:MOF ;
+    diam:usesTool diam:Apptainer , diam:Guix ;
+    diam:produces diam:DIAMONDWebpage , diam:LAMMPS , 
+                  diam:QuantumESPRESSO , diam:Abinit ,
+                  diam:Zset , diam:FreeFEM ,
+                  diam:OpenCalphad , diam:Neper ,
+                  diam:PLUMED , diam:Gmsh ,
+                  diam:ZeoPlusPlus , diam:RASPA2 ,
+                  diam:OpenDiS , diam:Wannier90 ,
+                  diam:NWChem , diam:FEniCS ,
+                  diam:CP2K , diam:n2p2 ,
+                  diam:DFTBPlus , diam:XTB ,
+                  diam:GaTewAY , diam:Ovito ,
+                  diam:ParaView , diam:VESTA ,
+                  diam:VMD , diam:XCrySDen ;
+                  diam:ledBy diam:SIMAP ;
+    diam:coLedBy diam:ILM , diam:IMPMC ;
+    rdfs:comment "Development of the code and workflow platform for the DIAMOND project." ;
+    skos:prefLabel "WP1" .
+
+diam:WP2 rdf:type diam:WorkPackage ;
+    diam:partOf diam:Diamond ;
+    diam:gathersCompetence diam:DatabaseInfrastructure , 
+                           diam:LargeScaleWorkflows ,
+                           diam:AIApproaches ,
+                           diam:MetadataStandardization ,
+                           diam:FAIRDataHandling ,
+                           diam:WorkflowOrchestration ;
+    diam:usesTool diam:MongoDB ;
+    diam:produces diam:DiamondDBInfrastructure ;
+    diam:ledBy diam:CEA-MEM ;
+    diam:coLedBy diam:CEA-LIST ;
+    rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
+    skos:prefLabel "WP2" .
+
+
+diam:WP3 rdf:type diam:WorkPackage ;
+    diam:partOf diam:Diamond ;
+    diam:gathersCompetence diam:MLIP ,
+                           diam:AIApproaches ,
+                           diam:AIBasedModelling ,
+			   diam:AiidaWorkflows ,
+			   diam:AiiDAPluginDevelopment ,
+                           diam:MLWorkflowDesign ,
+                           diam:AtomicSimulation ,
+			   diam:NeuralNetworkPotentials ,
+			   diam:MLPValidation ;
+    diam:usesTool diam:AiiDA , diam:n2p2 , diam:LAMMPS , diam:CP2K ;
+    diam:produces diam:MLIPDB , diam:AiidaN2p2Plugin , diam:WorkflowPlatform  ;
+    diam:ledBy diam:IMPMC ;
+    diam:coLedBy diam:SIMAP ;
+    rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
+    skos:prefLabel "WP3" .
+    
+
+################################################################
+# Tasks
+
+# Example Task instance
+diam:Task3_3 rdf:type diam:Task ;
+    diam:taskName "Integration of tools for descriptors" ;
+    diam:isTaskOf diam:WP3 ;
+    diam:taskLead diam:SIMAP ;
+    diam:taskCoLead diam:IMPMC , diam:CEA-SRMP ;
+#    diam:taskProduces diam:XXXX ;
+    rdfs:comment "info" ;
+    skos:prefLabel "Task 3.3" .
+
+
+
+# ----> Instances Competences <----
+diam:NeuralNetworkPotentials a diam:Computational ;
+    skos:prefLabel "Neural Network Potentials" ;
+    rdfs:comment "Expertise in Behler-Parrinello neural network architectures and other neural network-based interatomic potentials for atomistic simulations." .
+
+diam:MLPValidation a diam:Methodological ;
+    skos:prefLabel "MLP Validation Methods" ;
+    rdfs:comment "Expertise in validation methods for machine learning potentials, including biased molecular dynamics, phonon-based sampling, and benchmark testing." .
+    
+diam:WebDevelopment a diam:Methodological ;
+    skos:prefLabel "Web Application Development" ;
+    rdfs:comment "Design and implementation of user-facing web applications for presenting, accessing, or submitting scientific data and workflows." .
+
+diam:AIApproaches a diam:Methodological ;
+    skos:prefLabel "AI Approaches" ;
+    rdfs:comment "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research." .
+
+diam:AIBasedModelling a diam:Methodological ;
+    skos:prefLabel "AI-based Modelling" ;
+    rdfs:comment "Application of artificial intelligence techniques to accelerate and enhance materials modelling and discovery." .
+
+diam:MLWorkflowDesign a diam:Methodological ;
+    skos:prefLabel "Machine Learning Workflow Design" ;
+    rdfs:comment "Designing ML workflows involving data preparation, feature engineering, training, validation, and deployment for scientific tasks." .
+
+diam:WorkflowDesign a diam:Methodological ;
+    skos:prefLabel "Workflow Design" ;
+    rdfs:comment "Structuring scientific and computational procedures into reproducible workflows." .
+
+diam:WorkflowOrchestration a diam:Methodological ;
+    skos:prefLabel "Workflow Orchestration" ;
+    rdfs:comment "Coordinating and managing computational workflows using orchestration tools such as CWL, Nextflow, or Airflow." .
+
+diam:DatabaseInfrastructure a diam:DataManagement ;
+    skos:prefLabel "Database Infrastructure" ;
+    rdfs:comment "Building and maintaining backend infrastructure for storing, querying, and scaling access to scientific simulation and experimental data." .
+
+diam:DatabaseInfrastructureDesign a diam:DataManagement ;
+    skos:prefLabel "Database Infrastructure Design" ;
+    rdfs:comment "Designing the architecture and implementation of scalable and reliable database systems for scientific workflows." .
+
+diam:FAIRDataHandling a diam:DataManagement ;
+    skos:prefLabel "FAIR Data Handling" ;
+    rdfs:comment "Applying FAIR principles to ensure that research data is Findable, Accessible, Interoperable, and Reusable." .
+
+diam:MetadataStandardization a diam:DataManagement ;
+    skos:prefLabel "Metadata Standardization" ;
+    rdfs:comment "Defining, adopting, and applying metadata schemas to improve data interoperability and reusability." .
+
+diam:AiidaWorkflows a diam:Computational ;
+    skos:prefLabel "AiiDA Workflows" ;
+    rdfs:comment "Design and execution of automated and reproducible scientific workflows using the AiiDA computational framework." .
+
+diam:AiiDAPluginDevelopment a diam:Computational ;
+    skos:prefLabel "AiiDA Plugin Development" ;
+    rdfs:comment "Development of AiiDA plugins to interface scientific simulation codes with automated workflow engines." .
+
+diam:AtomicSimulation a diam:Computational ;
+    skos:prefLabel "Atomistic Simulation" ;
+    rdfs:comment "Developing and applying atomistic simulation techniques for materials modelling." .
+
+diam:ContainerDeployment a diam:Computational ;
+    skos:prefLabel "Scientific Software Containerization" ;
+    rdfs:comment "Packaging and deploying scientific software using container technologies such as Apptainer or Docker." .
+
+diam:GuixPackaging a diam:Computational ;
+    skos:prefLabel "Guix Packaging" ;
+    rdfs:comment "Creating and maintaining Guix packages to ensure reproducible software environments for scientific computing." .
+
+diam:HighPerformanceComputing a diam:Computational ;
+    skos:prefLabel "High-performance Computing" ;
+    rdfs:comment "Using and optimizing scientific codes for execution on high-performance computing infrastructures, including GPU clusters and parallel systems." .
+
+diam:LargeScaleWorkflows a diam:Computational ;
+    skos:prefLabel "Large-scale Workflows" ;
+    rdfs:comment "Design and execution of large-scale computational workflows running across distributed or HPC infrastructures." .
+
+diam:Containerization a diam:Computational ;
+    skos:prefLabel "Containerization" ;
+    rdfs:comment "Using container technologies to encapsulate, distribute, and execute scientific software in reproducible environments." .
+
+diam:MLIP a diam:Computational ;
+    skos:prefLabel "Machine Learning Interatomic Potentials" ;
+    rdfs:comment "Using and developing ML-based interatomic potentials for atomistic simulations, including training, validation, and workflow integration." .
+
+
+diam:MOF a diam:Competence ;
+    skos:prefLabel "Metal-Organic Frameworks" ;
+    rdfs:comment "Expertise in the chemistry, structure, modelling, or application of metal-organic frameworks." .
+
+
+
+# ----> Instances database <----
+
+diam:MLIPDB rdf:type diam:Database ;
+    rdfs:comment "Machine Learning Interatomic Potentials database - an open-access web repository where external users can submit new MLP models and download MLP parameterizations." .
+
+diam:Fast2NanoDB rdf:type  diam:Database ;
+    rdfs:comment "Fast2Nano database - " .
+
+diam:AtomisticNumericalSimulationDB rdf:type  diam:Database ;
+    skos:prefLabel "Database for atomistic numerical simulations - based on BigDFT code simulation" .
+
+
+#-----
+diam:DiamondWebpage rdf:type diam:Webpage ;
+    rdfs:comment "DIAMOND Web page giving users access to all the containers of codes and workflows." ;
+    skos:prefLabel "DIAMOND Project Webpage" ;
+    diam:hasURL <https://diamond-diadem.github.io/> .
+
+diam:DiamondDBInfrastructure rdf:type diam:Database ;
+    skos:prefLabel "DIAMOND database infrastructure hosted at the TGCC-Cloud" ;
+    diam:hasURL <https:tbc> .
+diam:DiamondDBInfrastructure rdf:type diam:Database ;
+    skos:prefLabel "DIAMOND database infrastructure (TGCC-Cloud)" ;
+    rdfs:comment "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud." ;
+    diam:hasURL <https:tbc> ;
+    diam:hasComponent diam:DiamondDBConsultationUI ,
+                      diam:DiamondDBInjectionUI ,
+                      diam:MongoDBService ,
+                      diam:MinioDatalake ,
+                      diam:GrapheneAPI ,
+                      diam:GraphQLEndpoint ,
+                      diam:KeycloakAuth .
+
+diam:DiamondDBConsultationUI rdf:type diam:UserInterface ;
+    skos:prefLabel "Consultation Interface" ;
+    rdfs:comment "User interface for querying, browsing and visualizing contents of the Diamond database." .
+
+diam:DiamondDBInjectionUI rdf:type diam:UserInterface ;
+    skos:prefLabel "Data Injection Interface" ;
+    rdfs:comment "Interface for uploading or inserting structured data into the DIAMOND database." .
+
+diam:MongoDBService rdf:type diam:BackendService ;
+    skos:prefLabel "MongoDB backend" ;
+    rdfs:comment "MongoDB instance used for DIAMOND's metadata store and backend infrastructure." .
+
+diam:MinioDatalake rdf:type diam:StorageService ;
+    skos:prefLabel "MinIO data lake" ;
+    rdfs:comment "Object storage solution for experimental and computational datasets, used as DIAMOND's data lake." .
+
+diam:GrapheneAPI rdf:type diam:BackendService ;
+    skos:prefLabel "Graphene API" ;
+    rdfs:comment "Python GraphQL API implemented using Graphene." .
+
+diam:GraphQLEndpoint rdf:type diam:BackendService ;
+    skos:prefLabel "GraphQL endpoint" ;
+    rdfs:comment "GraphQL endpoint providing structured access to the DIAMOND data backend." .
+
+diam:KeycloakAuth rdf:type diam:BackendService ;
+    skos:prefLabel "Keycloak authentication service" ;
+    rdfs:comment "Identity and access management layer using Keycloak for authentication and authorization." .
+
+#Jupyter Colab (solution for jupyte notebooks hosted in git;ab serverr. Access to AI dedicated tools. Deployed at gricad  and tcgg-cloud 
+
+# ----> Instances Software <----
+
+diam:AiiDA rdf:type diam:OpenSource ;
+    rdfs:comment "AiiDA (Automated Interactive Infrastructure and Database for Computational Science) is an open-source Python framework for managing, preserving, and disseminating computational scientific workflows. It provides automated provenance tracking, data management, and workflow execution capabilities for high-throughput computational materials science." ;
+    skos:prefLabel "AiiDA" ;
+    diam:isUsedForDevelopment diam:AiidaWorkflows , diam:AiiDAPluginDevelopment .
+    
+diam:Guix rdf:type  diam:OpenSource ;
+    rdfs:comment "GNU Guix is a functional package manager that facilitates the creation of reproducible and declarative software environments. It allows users to define complete software environments that can be shared and replicated across different systems, enhancing reproducibility in software deployment." ;
+    skos:prefLabel "Guix" .
+
+diam:Apptainer rdf:type  diam:OpenSource ;
+    rdfs:comment "Apptainer is an open-source container platform. It enables users to create and run containers that encapsulate applications and their dependencies, ensuring portability and reproducibility across diverse computing systems." ;
+    skos:prefLabel "Apptainer" .
+
+diam:BigDFTsim rdf:type diam:OpenSource ;
+    rdfs:comment "BigDFT is an open-source electronic structure code based on density functional theory (DFT) that utilizes Daubechies wavelets as a computational basis. It is designed for ab initio simulations of materials and molecular systems, offering high precision and scalability for large-scale simulations." ;
+    skos:prefLabel "BigDFT" ;
+    diam:isUsedForDevelopment diam:AtomisticNumericalSimulationDB .
+
+diam:MongoDB rdf:type  diam:OpenSource ;
+    rdfs:comment "MongoDB is a document-oriented NoSQL database that stores data in flexible, JSON-like documents. It offers scalability and flexibility for handling large volumes of unstructured or semi-structured data, making it suitable for modern application development." ;
+    skos:prefLabel "MongoDB" ;
+    diam:isUsedForDevelopment diam:Database .
+
+#----------
+
+diam:MLPWebRepository rdf:type diam:Webpage ;
+    rdfs:label "MLP Web Repository" ;
+    skos:prefLabel "Machine Learning Potential Repository" ;
+    rdfs:comment "An open-access web repository where external users can submit new MLP models and download MLP parameterizations." .
+
+diam:AiidaN2p2Plugin rdf:type diam:Product ;
+    rdfs:label "AiiDA-n2p2 Plugin" ;
+    skos:prefLabel "AiiDA-n2p2 Plugin" ;
+    rdfs:comment "An AiiDA plugin for automating the development of Behler-Parrinello neural network MLPs using n2p2, including automated weight selection, validation through LAMMPS molecular dynamics, and semi-automated input generation." .
+
+diam:MLPWorkflowPlatform rdf:type diam:Product ;
+    rdfs:label "MLP Workflow Platform" ;
+    skos:prefLabel "MLP Development Workflow Platform" ;
+    rdfs:comment "A containerized workflow solution for MLP development, including automated generation of training, validation and test datasets, and integration with ab initio calculation engines." .
+
+
+
+##################
+#  Institutions
+##################
+
+diam:SIMAP rdf:type diam:Partner ;
+    skos:prefLabel "SIMaP" .
+
+diam:IMPMC rdf:type diam:Partner ;
+    skos:prefLabel "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie".
+
+diam:GRICAD rdf:type diam:Partner ;
+    skos:prefLabel "Grenoble Alpes Research Scientific Computing and Data Infrastructure".
+
+diam:ILM  rdf:type diam:Partner ;
+    skos:prefLabel "The Institut Lumière Matière" .
+
+diam:CEA-LIST rdf:type diam:Partner ;
+    skos:prefLabel "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)" .
+    
+diam:CEA-MEM rdf:type diam:Partner ;
+    skos:prefLabel "CEA-MEM (Matter Exploration and Modeling)" .
+
+diam:CEA-LGLS rdf:type diam:Partner ;
+    skos:prefLabel "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)" .
+
+diam:CEA-SRMP rdf:type diam:Partner ;
+    skos:prefLabel "CEA-SRMP (Service de Recherches de Métallurgie Physique)" .
+
+
+
+# ----> Tasks < ----
+
+#
+# Task 1.1 - Platform infrastructure (GRICAD)
+# 
+# Task 1.2 - Deployment of containers for standalone codes (iLM)
+#
+# Task 1.3 - Deployment of workflows (IMPMC)
+#
+# Task 1.4 - MOF learning workflow use case (SIMaP)
+#
+# Task 1.5 - ESRF AI workflow use case (CEA-MEM).
+#
+# Task 2.1 - Materials Research Data Management Software Infrastructure (CEA-LIST)
+#
+# Task 2.2 - Simulation database (CEA-MEM)
+#
+# Task 2.3 - AI analysis tools (CEA-LIST)
+#
+# Task 2.4 - FastNano use case (CEA-LIST)
+#
+# Task 3.1 - MLP repository (IMPMC)
+#
+# Task 3.2 - Towards an automated generation of training, validation and test datasets (IMPMC)
+#
+# Task 3.3 - Integration of tools for descriptors (SIMaP)
+#
+# Task 3.4 -  Regression tools and MLP generation (SIMaP, IMPMC and CEA-SRMP)
+#
+# Task 3.5 - MLP development workflow (IMPMC, SIMaP)
+#
+
+
+#--------------------------------------
+# ---------- Containers ---------------
+# -------------------------------------
+
+# ----> Instances of Scientific Computing Containerized Codes <----
+
+diam:LAMMPS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "LAMMPS" ;
+    rdfs:comment "Large-scale Atomic/Molecular Massively Parallel Simulator. A classical molecular dynamics code for simulating materials, soft matter, and biological systems at the atomic scale." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/scientific-computing/lammps/> .
+
+diam:QuantumESPRESSO rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Quantum ESPRESSO" ;
+    rdfs:comment "An integrated suite of open-source codes for electronic-structure calculations and materials modeling at the nanoscale, based on density-functional theory, plane waves, and pseudopotentials." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/scientific-computing/quantum-espresso/> .
+
+diam:Abinit rdf:type diam:ScientificComputing ;
+    skos:prefLabel "ABINIT" ;
+    rdfs:comment "A software suite for electronic structure calculations based on density functional theory, using pseudopotentials and a plane wave or wavelet basis. Capable of treating metals, insulators, and molecules." .
+
+diam:Zset rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Z-set" ;
+    rdfs:comment "A finite element-based software suite for nonlinear material and structure analysis, particularly focused on thermomechanical simulations and advanced material behavior modeling." .
+
+diam:FreeFEM rdf:type diam:ScientificComputing ;
+    skos:prefLabel "FreeFEM" ;
+    rdfs:comment "A partial differential equation solver using the finite element method. Widely used for multiphysics simulations in fluid dynamics, structural mechanics, and electromagnetics." .
+
+diam:OpenCalphad rdf:type diam:ScientificComputing ;
+    skos:prefLabel "OpenCalphad" ;
+    rdfs:comment "An open-source thermodynamic software for CALPHAD (CALculation of PHAse Diagrams) calculations, used for predicting phase equilibria and thermodynamic properties of multicomponent systems." .
+
+diam:Neper rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Neper" ;
+    rdfs:comment "A software package for polycrystal generation and meshing, designed to create representative volume elements of polycrystalline materials for finite element simulations." .
+
+diam:PLUMED rdf:type diam:ScientificComputing ;
+    skos:prefLabel "PLUMED" ;
+    rdfs:comment "An open-source plugin for free energy calculations in molecular dynamics, enabling enhanced sampling methods and analysis of molecular simulations across multiple MD codes." .
+
+diam:Gmsh rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Gmsh" ;
+    rdfs:comment "A three-dimensional finite element mesh generator with built-in pre- and post-processing facilities, widely used for computational modeling in engineering and physics." .
+
+diam:ZeoPlusPlus rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Zeo++" ;
+    rdfs:comment "A software package for high-throughput analysis of porous materials and crystal structures, calculating geometric properties such as surface area, pore volume, and accessible channels." .
+
+diam:RASPA2 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "RASPA2" ;
+    rdfs:comment "A molecular simulation software for adsorption and diffusion in nanoporous materials, particularly metal-organic frameworks (MOFs) and zeolites, using Monte Carlo and molecular dynamics methods." .
+
+diam:OpenDiS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "OpenDiS" ;
+    rdfs:comment "An open-source dislocation dynamics simulation code for modeling plastic deformation in crystalline materials through the collective motion of dislocations." .
+
+diam:Wannier90 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "Wannier90" ;
+    rdfs:comment "A code for generating maximally-localized Wannier functions from electronic structure calculations, used for analyzing chemical bonding and calculating transport properties." .
+
+diam:NWChem rdf:type diam:ScientificComputing ;
+    skos:prefLabel "NWChem" ;
+    rdfs:comment "A computational chemistry software designed for calculations on molecular systems of varying sizes, from small molecules to biomolecules and materials, using quantum mechanical and classical methods." .
+
+diam:FEniCS rdf:type diam:ScientificComputing ;
+    skos:prefLabel "FEniCS" ;
+    rdfs:comment "An open-source computing platform for solving partial differential equations using the finite element method, with automated solution of variational problems and high-level Python interfaces." .
+
+diam:CP2K rdf:type diam:ScientificComputing ;
+    skos:prefLabel "CP2K" ;
+    rdfs:comment "A quantum chemistry and solid-state physics software package for atomistic simulations, particularly efficient for molecular dynamics simulations using mixed Gaussian and plane wave methods." .
+
+diam:n2p2 rdf:type diam:ScientificComputing ;
+    skos:prefLabel "n2p2" ;
+    rdfs:comment "A software package for training and applying high-dimensional neural network potentials for atomistic simulations, enabling accurate and efficient molecular dynamics with machine learning potentials." .
+
+diam:DFTBPlus rdf:type diam:ScientificComputing ;
+    skos:prefLabel "DFTB+" ;
+    rdfs:comment "A density functional tight-binding code for efficient quantum mechanical calculations on large molecular and materials systems, offering a good balance between accuracy and computational cost." .
+
+diam:XTB rdf:type diam:ScientificComputing ;
+    skos:prefLabel "XTB" ;
+    rdfs:comment "An extended tight-binding semi-empirical quantum chemistry program for efficiently calculating structures, properties, and reaction paths of molecular systems containing thousands of atoms." .
+
+diam:GaTewAY rdf:type diam:ScientificComputing ;
+    skos:prefLabel "GaTewAY" ;
+    rdfs:comment "A workflow management system for computational materials science, designed to facilitate automated execution of complex simulation workflows and integration with high-performance computing resources." .
+
+# ----> Instances of Visualization Containerized Codes <----
+
+diam:Ovito rdf:type diam:Visualization ;
+    skos:prefLabel "OVITO" ;
+    rdfs:comment "Open Visualization Tool - A scientific visualization and analysis software for atomistic and particle simulation data, particularly suited for molecular dynamics and discrete element simulations." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/visualisation/ovito/> .
+
+diam:ParaView rdf:type diam:Visualization ;
+    skos:prefLabel "ParaView" ;
+    rdfs:comment "An open-source, multi-platform data analysis and visualization application for large-scale scientific datasets, supporting various data formats and offering advanced visualization capabilities for finite element and computational fluid dynamics results." ;
+    diam:hasURL <https://diamond-diadem.github.io/codes/visualisation/paraview/> .
+
+diam:VESTA rdf:type diam:Visualization ;
+    skos:prefLabel "VESTA" ;
+    rdfs:comment "Visualization for Electronic and STructural Analysis - A 3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies, widely used in materials science and crystallography." .
+
+diam:VMD rdf:type diam:Visualization ;
+    skos:prefLabel "VMD" ;
+    rdfs:comment "Visual Molecular Dynamics - A molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3D graphics and built-in scripting for trajectory analysis." .
+
+diam:XCrySDen rdf:type diam:Visualization ;
+    skos:prefLabel "XCrySDen" ;
+    rdfs:comment "X-window CRYstalline Structures and DENsities - A crystalline and molecular structure visualization program for displaying isosurfaces, contours, and atomic structures, with support for various quantum chemistry and solid-state physics codes." .
+
+
