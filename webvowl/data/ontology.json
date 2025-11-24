@@ -1,7 +1,7 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
-    "languages" : [ "en", "undefined" ],
+    "languages" : [ "en", "fr", "undefined" ],
     "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://data.europa.eu/s66" ],
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
     "version" : "0.1",
@@ -25,10 +25,10 @@
     "id" : "18",
     "type" : "owl:Class"
   }, {
-    "id" : "19",
+    "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "21",
+    "id" : "24",
     "type" : "owl:Class"
   }, {
     "id" : "30",
@@ -43,7 +43,7 @@
     "id" : "37",
     "type" : "owl:Class"
   }, {
-    "id" : "22",
+    "id" : "23",
     "type" : "owl:Class"
   }, {
     "id" : "31",
@@ -52,10 +52,10 @@
     "id" : "53",
     "type" : "owl:Class"
   }, {
-    "id" : "5",
+    "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "24",
+    "id" : "20",
     "type" : "owl:Class"
   }, {
     "id" : "13",
@@ -64,13 +64,13 @@
     "id" : "50",
     "type" : "owl:Class"
   }, {
-    "id" : "1",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
     "id" : "35",
     "type" : "owl:Class"
   }, {
-    "id" : "6",
+    "id" : "2",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "57",
@@ -85,10 +85,10 @@
     "id" : "81",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "27",
+    "id" : "5",
     "type" : "owl:Class"
   }, {
-    "id" : "2",
+    "id" : "27",
     "type" : "owl:Class"
   }, {
     "id" : "65",
@@ -112,13 +112,13 @@
     "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "25",
+    "id" : "21",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "46",
     "type" : "owl:Class"
   }, {
-    "id" : "20",
+    "id" : "25",
     "type" : "owl:Class"
   }, {
     "id" : "15",
@@ -243,16 +243,6 @@
     "id" : "18",
     "superClasses" : [ "13" ]
   }, {
-    "iri" : "http://data.europa.eu/s66#Organisation",
-    "baseIri" : "http://data.europa.eu/s66",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Organisation"
-    },
-    "subClasses" : [ "20" ],
-    "attributes" : [ "external" ],
-    "id" : "19"
-  }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Methodological",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
     "instances" : 0,
@@ -278,23 +268,6 @@
         "IRI-based" : "AIBasedModelling"
       }
     }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#AIApproaches",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "AI Approaches",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research."
-      },
-      "labels" : {
-        "IRI-based" : "AIApproaches"
-      }
-    }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#WorkflowOrchestration",
       "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
       "annotations" : {
@@ -310,6 +283,23 @@
       },
       "labels" : {
         "IRI-based" : "WorkflowOrchestration"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#AIApproaches",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "AI Approaches",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "General methodological approaches based on artificial intelligence for analysis, prediction, or automation in scientific research."
+      },
+      "labels" : {
+        "IRI-based" : "AIApproaches"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#MLPValidation",
@@ -383,8 +373,18 @@
     "comment" : {
       "undefined" : "Competences related to methodological approaches"
     },
-    "id" : "21",
-    "superClasses" : [ "22" ]
+    "id" : "22",
+    "superClasses" : [ "23" ]
+  }, {
+    "iri" : "http://data.europa.eu/s66#Organisation",
+    "baseIri" : "http://data.europa.eu/s66",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organisation"
+    },
+    "subClasses" : [ "25" ],
+    "attributes" : [ "external" ],
+    "id" : "24"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#UserInterface",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -518,7 +518,7 @@
       "undefined" : "Competences related to data management and curation"
     },
     "id" : "41",
-    "superClasses" : [ "22" ]
+    "superClasses" : [ "23" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Contributor",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -534,7 +534,7 @@
     "label" : {
       "IRI-based" : "Contributor"
     },
-    "subClasses" : [ "20", "5" ],
+    "subClasses" : [ "25", "1" ],
     "comment" : {
       "undefined" : "A person or partner that contributes to a Work Package."
     },
@@ -586,11 +586,11 @@
         "IRI-based" : "MOF"
       }
     } ],
-    "subClasses" : [ "21", "41", "53" ],
+    "subClasses" : [ "22", "41", "53" ],
     "comment" : {
       "undefined" : "A specific skill or area of expertise"
     },
-    "id" : "22"
+    "id" : "23"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#SoftwareComponent",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -671,23 +671,6 @@
         "IRI-based" : "LargeScaleWorkflows"
       }
     }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#ContainerDeployment",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "Scientific Software Containerization",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "Packaging and deploying scientific software using container technologies such as Apptainer or Docker."
-      },
-      "labels" : {
-        "IRI-based" : "ContainerDeployment"
-      }
-    }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#NeuralNetworkPotentials",
       "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
       "annotations" : {
@@ -703,6 +686,23 @@
       },
       "labels" : {
         "IRI-based" : "NeuralNetworkPotentials"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#ContainerDeployment",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "Scientific Software Containerization",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "Packaging and deploying scientific software using container technologies such as Apptainer or Docker."
+      },
+      "labels" : {
+        "IRI-based" : "ContainerDeployment"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#GuixPackaging",
@@ -794,7 +794,7 @@
       "undefined" : "Competences related to computational methods and tools"
     },
     "id" : "53",
-    "superClasses" : [ "22" ]
+    "superClasses" : [ "23" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Person",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -806,7 +806,7 @@
     "comment" : {
       "undefined" : "A person working on the project"
     },
-    "id" : "5",
+    "id" : "1",
     "superClasses" : [ "11" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Project",
@@ -835,7 +835,7 @@
     "comment" : {
       "en" : "The foundational top-level class encompassing all conceptual \n    and tangible entities pertinent to the DIAMOND project, under the DIADEM PEPR."
     },
-    "id" : "24"
+    "id" : "20"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Software",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -916,6 +916,23 @@
         "IRI-based" : "ParaView"
       }
     }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#VESTA",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "VESTA",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "Visualization for Electronic and STructural Analysis - A 3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies, widely used in materials science and crystallography."
+      },
+      "labels" : {
+        "IRI-based" : "VESTA"
+      }
+    }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Ovito",
       "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
       "annotations" : {
@@ -937,23 +954,6 @@
       },
       "labels" : {
         "IRI-based" : "Ovito"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#VESTA",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "VESTA",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "Visualization for Electronic and STructural Analysis - A 3D visualization program for structural models, volumetric data such as electron/nuclear densities, and crystal morphologies, widely used in materials science and crystallography."
-      },
-      "labels" : {
-        "IRI-based" : "VESTA"
       }
     } ],
     "comment" : {
@@ -990,7 +990,7 @@
     "comment" : {
       "undefined" : "A specific task within a work package. Tasks represent the most granular level of work organization and are directly responsible for producing specific products or deliverables."
     },
-    "id" : "1"
+    "id" : "4"
   }, {
     "iri" : "http://data.europa.eu/s66#ExploitableResult",
     "baseIri" : "http://data.europa.eu/s66",
@@ -1004,7 +1004,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "6",
+    "id" : "2",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1036,80 +1036,6 @@
     "label" : {
       "IRI-based" : "string"
     }
-  }, {
-    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Database",
-    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Database",
-      "undefined" : "Database"
-    },
-    "individuals" : [ {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#DiamondDBInfrastructure",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "hasURL" : [ {
-          "identifier" : "hasURL",
-          "language" : "undefined",
-          "value" : "https:tbc",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "DIAMOND database infrastructure hosted at the TGCC-Cloud",
-          "type" : "label"
-        }, {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "DIAMOND database infrastructure (TGCC-Cloud)",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud."
-      },
-      "labels" : {
-        "IRI-based" : "DiamondDBInfrastructure"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Fast2NanoDB",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "comment" : {
-        "undefined" : "Fast2Nano database - "
-      },
-      "labels" : {
-        "IRI-based" : "Fast2NanoDB"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#MLIPDB",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "comment" : {
-        "undefined" : "Machine Learning Interatomic Potentials database - an open-access web repository where external users can submit new MLP models and download MLP parameterizations."
-      },
-      "labels" : {
-        "IRI-based" : "MLIPDB"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#AtomisticNumericalSimulationDB",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "Database for atomistic numerical simulations - based on BigDFT code simulation",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "AtomisticNumericalSimulationDB"
-      }
-    } ],
-    "comment" : {
-      "undefined" : "A database created as a product"
-    },
-    "id" : "27",
-    "superClasses" : [ "15" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#WorkPackage",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -1173,7 +1099,81 @@
     "comment" : {
       "undefined" : "A work package within the project"
     },
-    "id" : "2"
+    "id" : "5"
+  }, {
+    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Database",
+    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Database",
+      "undefined" : "Database"
+    },
+    "individuals" : [ {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#DiamondDBInfrastructure",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "hasURL" : [ {
+          "identifier" : "hasURL",
+          "language" : "undefined",
+          "value" : "https:tbc",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "DIAMOND database infrastructure (TGCC-Cloud)",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "DIAMOND database infrastructure hosted at the TGCC-Cloud",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "Core DIAMOND database and data lake infrastructure deployed at the TGCC-Cloud."
+      },
+      "labels" : {
+        "IRI-based" : "DiamondDBInfrastructure"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Fast2NanoDB",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "comment" : {
+        "undefined" : "Fast2Nano database - "
+      },
+      "labels" : {
+        "IRI-based" : "Fast2NanoDB"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#MLIPDB",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "comment" : {
+        "undefined" : "Machine Learning Interatomic Potentials database - an open-access web repository where external users can submit new MLP models and download MLP parameterizations."
+      },
+      "labels" : {
+        "IRI-based" : "MLIPDB"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#AtomisticNumericalSimulationDB",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "Database for atomistic numerical simulations - based on BigDFT code simulation",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AtomisticNumericalSimulationDB"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A database created as a product"
+    },
+    "id" : "27",
+    "superClasses" : [ "15" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -1190,7 +1190,7 @@
     }
   }, {
     "instances" : 0,
-    "union" : [ "15", "5" ],
+    "union" : [ "15", "1" ],
     "attributes" : [ "union", "anonymous" ],
     "id" : "8"
   }, {
@@ -1351,23 +1351,6 @@
         "IRI-based" : "n2p2"
       }
     }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#FEniCS",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "FEniCS",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "An open-source computing platform for solving partial differential equations using the finite element method, with automated solution of variational problems and high-level Python interfaces."
-      },
-      "labels" : {
-        "IRI-based" : "FEniCS"
-      }
-    }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#FreeFEM",
       "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
       "annotations" : {
@@ -1383,6 +1366,23 @@
       },
       "labels" : {
         "IRI-based" : "FreeFEM"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#FEniCS",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "FEniCS",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "An open-source computing platform for solving partial differential equations using the finite element method, with automated solution of variational problems and high-level Python interfaces."
+      },
+      "labels" : {
+        "IRI-based" : "FEniCS"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Gmsh",
@@ -1644,7 +1644,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "25",
+    "id" : "21",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1698,9 +1698,13 @@
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "undefined",
-          "value" : "Grenoble Alpes Research Scientific Computing and Data Infrastructure",
+          "value" : "GRICAD",
           "type" : "label"
         } ]
+      },
+      "comment" : {
+        "en" : "Grenoble Alpes Research Scientific Computing and Data Infrastructure",
+        "fr" : "Grenoble Alpes Recherche - Infrastructure de Calcul intensif et de Données"
       },
       "labels" : {
         "IRI-based" : "GRICAD"
@@ -1712,26 +1716,15 @@
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "undefined",
-          "value" : "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)",
+          "value" : "CEA-LGLS",
           "type" : "label"
         } ]
+      },
+      "comment" : {
+        "fr" : "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)"
       },
       "labels" : {
         "IRI-based" : "CEA-LGLS"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#CEA-MEM",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "CEA-MEM (Matter Exploration and Modeling)",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "CEA-MEM"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#CEA-SRMP",
@@ -1740,12 +1733,33 @@
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "undefined",
-          "value" : "CEA-SRMP (Service de Recherches de Métallurgie Physique)",
+          "value" : "CEA-SRMP",
           "type" : "label"
         } ]
       },
+      "comment" : {
+        "fr" : "CEA-SRMP (Service de Recherches de Métallurgie Physique)"
+      },
       "labels" : {
         "IRI-based" : "CEA-SRMP"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#CEA-MEM",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "CEA-MEM",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "CEA-MEM (Matter Exploration and Modeling)",
+        "fr" : "CEA-MEM (Laboratoire Modélisation et Exploration des Matériaux)"
+      },
+      "labels" : {
+        "IRI-based" : "CEA-MEM"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#CEA-LIST",
@@ -1754,9 +1768,12 @@
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "undefined",
-          "value" : "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)",
+          "value" : "CEA-LIST",
           "type" : "label"
         } ]
+      },
+      "comment" : {
+        "fr" : "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)"
       },
       "labels" : {
         "IRI-based" : "CEA-LIST"
@@ -1772,22 +1789,11 @@
           "type" : "label"
         } ]
       },
-      "labels" : {
-        "IRI-based" : "SIMAP"
-      }
-    }, {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#IMPMC",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie",
-          "type" : "label"
-        } ]
+      "comment" : {
+        "fr" : "Science et Ingénierie des Matériaux et Procédés"
       },
       "labels" : {
-        "IRI-based" : "IMPMC"
+        "IRI-based" : "SIMAP"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#ILM",
@@ -1796,19 +1802,39 @@
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "undefined",
-          "value" : "The Institut Lumière Matière",
+          "value" : "iLM",
           "type" : "label"
         } ]
       },
+      "comment" : {
+        "fr" : "The Institut Lumière Matière"
+      },
       "labels" : {
         "IRI-based" : "ILM"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#IMPMC",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "IMPMC",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "fr" : "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie"
+      },
+      "labels" : {
+        "IRI-based" : "IMPMC"
       }
     } ],
     "comment" : {
       "undefined" : "Institution participating in the project"
     },
-    "id" : "20",
-    "superClasses" : [ "19", "11" ]
+    "id" : "25",
+    "superClasses" : [ "24", "11" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Product",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -1859,7 +1885,7 @@
       "undefined" : "Products produced in the project"
     },
     "id" : "15",
-    "superClasses" : [ "9", "35" ]
+    "superClasses" : [ "35", "9" ]
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#Commercial",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -1889,23 +1915,6 @@
       "IRI-based" : "BackendService"
     },
     "individuals" : [ {
-      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#GrapheneAPI",
-      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-      "annotations" : {
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "undefined",
-          "value" : "Graphene API",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "Python GraphQL API implemented using Graphene."
-      },
-      "labels" : {
-        "IRI-based" : "GrapheneAPI"
-      }
-    }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#GraphQLEndpoint",
       "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
       "annotations" : {
@@ -1921,6 +1930,23 @@
       },
       "labels" : {
         "IRI-based" : "GraphQLEndpoint"
+      }
+    }, {
+      "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#GrapheneAPI",
+      "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "Graphene API",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "Python GraphQL API implemented using Graphene."
+      },
+      "labels" : {
+        "IRI-based" : "GrapheneAPI"
       }
     }, {
       "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#KeycloakAuth",
@@ -1962,10 +1988,10 @@
   } ],
   "property" : [ {
     "id" : "0",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "4",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "7",
     "type" : "owl:objectProperty"
@@ -1982,7 +2008,7 @@
     "id" : "17",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "23",
+    "id" : "19",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "26",
@@ -2063,7 +2089,7 @@
     "id" : "67",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "3",
+    "id" : "6",
     "type" : "owl:objectProperty"
   }, {
     "id" : "68",
@@ -2118,34 +2144,34 @@
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#isTaskOf",
-    "inverse" : "3",
-    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "2",
-    "label" : {
-      "IRI-based" : "isTaskOf",
-      "undefined" : "isTaskOf"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Relates a task to the work package it belongs to"
-    },
-    "attributes" : [ "object" ],
-    "id" : "0"
-  }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#email",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "6",
+    "range" : "2",
     "label" : {
       "IRI-based" : "email",
       "undefined" : "email"
     },
-    "domain" : "5",
+    "domain" : "1",
     "comment" : {
       "undefined" : "The email address of a person"
     },
     "attributes" : [ "datatype" ],
-    "id" : "4"
+    "id" : "0"
+  }, {
+    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#isTaskOf",
+    "inverse" : "6",
+    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "isTaskOf",
+      "undefined" : "isTaskOf"
+    },
+    "domain" : "4",
+    "comment" : {
+      "undefined" : "Relates a task to the work package it belongs to"
+    },
+    "attributes" : [ "object" ],
+    "id" : "3"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#usesTool",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -2175,26 +2201,12 @@
     "label" : {
       "IRI-based" : "hasContributor"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "undefined" : "Indicates that a Work Package involves a person or partner as a contributor."
     },
     "attributes" : [ "object" ],
     "id" : "10"
-  }, {
-    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#produces",
-    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "15",
-    "label" : {
-      "IRI-based" : "produces",
-      "undefined" : "produces"
-    },
-    "domain" : "2",
-    "comment" : {
-      "undefined" : "Relates a work package to the products it produces"
-    },
-    "attributes" : [ "object" ],
-    "id" : "14"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#develops",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
@@ -2203,9 +2215,23 @@
       "IRI-based" : "develops",
       "undefined" : "develops"
     },
-    "domain" : "5",
+    "domain" : "1",
     "comment" : {
       "undefined" : "Relates a person to the products they develop"
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#produces",
+    "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "produces",
+      "undefined" : "produces"
+    },
+    "domain" : "5",
+    "comment" : {
+      "undefined" : "Relates a work package to the products it produces"
     },
     "attributes" : [ "object" ],
     "id" : "16"
@@ -2213,7 +2239,7 @@
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#isContributorOf",
     "inverse" : "10",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "2",
+    "range" : "5",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2231,17 +2257,17 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#description",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "25",
+    "range" : "21",
     "label" : {
       "IRI-based" : "description",
       "undefined" : "description"
     },
-    "domain" : "24",
+    "domain" : "20",
     "comment" : {
       "undefined" : "A description of the entity"
     },
     "attributes" : [ "datatype" ],
-    "id" : "23"
+    "id" : "19"
   }, {
     "range" : "15",
     "domain" : "27",
@@ -2255,12 +2281,12 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#hasCompetence",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "22",
+    "range" : "23",
     "label" : {
       "IRI-based" : "hasCompetence",
       "undefined" : "hasCompetence"
     },
-    "domain" : "5",
+    "domain" : "1",
     "comment" : {
       "undefined" : "Relates a person to their competences"
     },
@@ -2285,7 +2311,7 @@
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#employedBy",
     "inverse" : "39",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "20",
+    "range" : "25",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2297,7 +2323,7 @@
     "label" : {
       "IRI-based" : "employedBy"
     },
-    "domain" : "5",
+    "domain" : "1",
     "attributes" : [ "object" ],
     "id" : "38"
   }, {
@@ -2313,12 +2339,12 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#hasPartner",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "20",
+    "range" : "25",
     "label" : {
       "IRI-based" : "hasPartner",
       "undefined" : "hasPartner"
     },
-    "domain" : "24",
+    "domain" : "20",
     "comment" : {
       "undefined" : "Relates a project to its partner institutions"
     },
@@ -2376,7 +2402,7 @@
       "IRI-based" : "endDate",
       "undefined" : "endDate"
     },
-    "domain" : "24",
+    "domain" : "20",
     "comment" : {
       "undefined" : "The end date of the project"
     },
@@ -2385,7 +2411,7 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#employs",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "5",
+    "range" : "1",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2397,14 +2423,14 @@
     "label" : {
       "IRI-based" : "employs"
     },
-    "domain" : "20",
+    "domain" : "25",
     "attributes" : [ "object" ],
     "id" : "39"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#gathersCompetence",
     "inverse" : "60",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "22",
+    "range" : "23",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2416,7 +2442,7 @@
     "label" : {
       "IRI-based" : "gathersCompetence"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "undefined" : "Indicates that a Work Package gatheres specific competence to be carried out."
     },
@@ -2428,7 +2454,7 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "61"
   }, {
-    "range" : "22",
+    "range" : "23",
     "domain" : "53",
     "attributes" : [ "object", "anonymous" ],
     "id" : "62"
@@ -2456,7 +2482,7 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#isPartOfWP",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "2",
+    "range" : "5",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2468,7 +2494,7 @@
     "label" : {
       "IRI-based" : "isPartOfWP"
     },
-    "domain" : "22",
+    "domain" : "23",
     "comment" : {
       "undefined" : "Indicates that a competence is part of a specific Work Package."
     },
@@ -2506,41 +2532,41 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#hasTask",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "1",
+    "range" : "4",
     "label" : {
       "IRI-based" : "hasTask",
       "undefined" : "hasTask"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "undefined" : "Relates a work package to its constituent tasks"
     },
     "attributes" : [ "object" ],
-    "id" : "3"
+    "id" : "6"
   }, {
-    "range" : "22",
+    "range" : "23",
     "domain" : "41",
     "attributes" : [ "object", "anonymous" ],
     "id" : "68"
   }, {
-    "range" : "22",
-    "domain" : "21",
+    "range" : "23",
+    "domain" : "22",
     "attributes" : [ "object", "anonymous" ],
     "id" : "69"
   }, {
-    "range" : "19",
-    "domain" : "20",
+    "range" : "24",
+    "domain" : "25",
     "attributes" : [ "object", "anonymous" ],
     "id" : "70"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#hasWorkPackage",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "2",
+    "range" : "5",
     "label" : {
       "IRI-based" : "hasWorkPackage",
       "undefined" : "hasWorkPackage"
     },
-    "domain" : "24",
+    "domain" : "20",
     "comment" : {
       "undefined" : "Relates a project to its work packages"
     },
@@ -2548,23 +2574,23 @@
     "id" : "71"
   }, {
     "range" : "11",
-    "domain" : "5",
+    "domain" : "1",
     "attributes" : [ "object", "anonymous" ],
     "id" : "72"
   }, {
     "range" : "11",
-    "domain" : "20",
+    "domain" : "25",
     "attributes" : [ "object", "anonymous" ],
     "id" : "73"
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#worksOn",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "2",
+    "range" : "5",
     "label" : {
       "IRI-based" : "worksOn",
       "undefined" : "worksOn"
     },
-    "domain" : "5",
+    "domain" : "1",
     "comment" : {
       "undefined" : "Relates a person to the work package they work on"
     },
@@ -2587,11 +2613,11 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#ledBy",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "20",
+    "range" : "25",
     "label" : {
       "IRI-based" : "ledBy"
     },
-    "domain" : "2",
+    "domain" : "5",
     "attributes" : [ "object" ],
     "id" : "76"
   }, {
@@ -2602,7 +2628,7 @@
       "IRI-based" : "startDate",
       "undefined" : "startDate"
     },
-    "domain" : "24",
+    "domain" : "20",
     "comment" : {
       "undefined" : "The start date of the project"
     },
@@ -2611,12 +2637,12 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#taskCoLead",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "5",
+    "range" : "1",
     "label" : {
       "IRI-based" : "taskCoLead",
       "undefined" : "taskCoLead"
     },
-    "domain" : "1",
+    "domain" : "4",
     "comment" : {
       "undefined" : "Relates a task to a person who co-leads it. A task can have multiple co-leads."
     },
@@ -2630,7 +2656,7 @@
       "IRI-based" : "taskName",
       "undefined" : "taskName"
     },
-    "domain" : "1",
+    "domain" : "4",
     "comment" : {
       "undefined" : "The name of the task"
     },
@@ -2655,7 +2681,7 @@
       "IRI-based" : "taskProduces",
       "undefined" : "taskProduces"
     },
-    "domain" : "1",
+    "domain" : "4",
     "comment" : {
       "undefined" : "Relates a task to the specific product(s) it produces. This is the most granular level of product attribution in the project."
     },
@@ -2685,7 +2711,7 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#coLedBy",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "5",
+    "range" : "1",
     "annotations" : {
       "prefLabel" : [ {
         "identifier" : "prefLabel",
@@ -2697,7 +2723,7 @@
     "label" : {
       "IRI-based" : "coLedBy"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "undefined" : "Indicates a co-coordinator of a Work Package."
     },
@@ -2706,12 +2732,12 @@
   }, {
     "iri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#taskLead",
     "baseIri" : "https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl",
-    "range" : "5",
+    "range" : "1",
     "label" : {
       "IRI-based" : "taskLead",
       "undefined" : "taskLead"
     },
-    "domain" : "1",
+    "domain" : "4",
     "comment" : {
       "undefined" : "Relates a task to the person who leads it"
     },
