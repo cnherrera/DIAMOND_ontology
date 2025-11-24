@@ -670,33 +670,39 @@ diam:MLPWorkflowPlatform rdf:type diam:Product ;
 ##################
 
 diam:SIMAP rdf:type diam:Partner ;
+    rdfs:comment "Science et Ingénierie des Matériaux et Procédés"@fr ;
     skos:prefLabel "SIMaP" .
 
 diam:IMPMC rdf:type diam:Partner ;
-    skos:prefLabel "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie".
+    rdfs:comment "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie"@fr ;
+    skos:prefLabel "IMPMC" .
 
 diam:GRICAD rdf:type diam:Partner ;
-    skos:prefLabel "Grenoble Alpes Research Scientific Computing and Data Infrastructure".
+    rdfs:comment "Grenoble Alpes Recherche - Infrastructure de Calcul intensif et de Données"@fr , "Grenoble Alpes Research Scientific Computing and Data Infrastructure"@en ;
+    skos:prefLabel "GRICAD" .
 
-diam:ILM  rdf:type diam:Partner ;
-    skos:prefLabel "The Institut Lumière Matière" .
+diam:ILM rdf:type diam:Partner ;
+    rdfs:comment "The Institut Lumière Matière"@fr ;
+    skos:prefLabel "iLM" .
 
 diam:CEA-LIST rdf:type diam:Partner ;
-    skos:prefLabel "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)" .
+    rdfs:comment "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)"@fr ;
+    skos:prefLabel "CEA-LIST" .
     
 diam:CEA-MEM rdf:type diam:Partner ;
-    skos:prefLabel "CEA-MEM (Matter Exploration and Modeling)" .
+    rdfs:comment "CEA-MEM (Laboratoire Modélisation et Exploration des Matériaux)"@fr ,  "CEA-MEM (Matter Exploration and Modeling)"@en ; 
+    skos:prefLabel "CEA-MEM" .
 
 diam:CEA-LGLS rdf:type diam:Partner ;
-    skos:prefLabel "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)" .
+    rdfs:comment "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)"@fr ;
+    skos:prefLabel "CEA-LGLS" .
 
 diam:CEA-SRMP rdf:type diam:Partner ;
-    skos:prefLabel "CEA-SRMP (Service de Recherches de Métallurgie Physique)" .
-
+    rdfs:comment  "CEA-SRMP (Service de Recherches de Métallurgie Physique)"@fr ; 
+    skos:prefLabel "CEA-SRMP" .
 
 
 # ----> Tasks < ----
-
 #
 # Task 1.1 - Platform infrastructure (GRICAD)
 # 
@@ -840,18 +846,3 @@ diam:XCrySDen rdf:type diam:Visualization ;
     skos:prefLabel "XCrySDen" ;
     rdfs:comment "X-window CRYstalline Structures and DENsities - A crystalline and molecular structure visualization program for displaying isosurfaces, contours, and atomic structures, with support for various quantum chemistry and solid-state physics codes." .
 
-
-<https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl> rdf:type owl:Ontology ;
-    rdfs:comment """The DIAMOND Project Ontology provides a comprehensive semantic framework for representing the organizational structure, competences, resources, and outputs of the DIAMOND (DIgital Absolute MAterials simulatioN Database) project, part of the French PEPR DIADEM (Programmes et Équipements Prioritaires de Recherche - DIgital MAtErials DesiNg).
-    
-    This ontology captures the key entities and relationships within the project, including work packages, partner institutions, personnel, scientific competences, computational resources, software tools, and research products. It is designed to facilitate knowledge management, enable semantic queries about project activities and outputs, and provide a machine-readable representation of the project's structure and deliverables.
-    
-    The ontology supports the project's mission to develop open-access databases, containerized scientific software, automated workflows, and machine learning tools for materials science, while documenting the diverse expertise gathered across computational methods, data management, and artificial intelligence approaches in materials modeling.
-    
-    By linking people to their competences, work packages to their products, and resources to their applications, this ontology serves as a living knowledge base that maps the DIAMOND project's contributions to the materials science community."""@en ;
-    owl:versionInfo "0.1" ;
-    rdfs:label "DIAMOND Project Ontology" ;
-    dct:title "DIAMOND Project Ontology - Semantic Framework for the PEPR DIADEM Materials Science Initiative" ;
-    dct:description "An OWL ontology for representing the structure, competences, and outputs of the DIAMOND project within the French PEPR DIADEM program" ;
-    dct:created "2024"^^xsd:gYear ;
-    owl:versionIRI <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl/0.1> .

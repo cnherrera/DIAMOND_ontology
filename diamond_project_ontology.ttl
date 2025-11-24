@@ -670,33 +670,39 @@ diam:MLPWorkflowPlatform rdf:type diam:Product ;
 ##################
 
 diam:SIMAP rdf:type diam:Partner ;
+    rdfs:comment "Science et Ingénierie des Matériaux et Procédés"@fr ;
     skos:prefLabel "SIMaP" .
 
 diam:IMPMC rdf:type diam:Partner ;
-    skos:prefLabel "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie".
+    rdfs:comment "Institut de Minéralogie, de Physique des Matériaux et de Cosmochimie"@fr ;
+    skos:prefLabel "IMPMC" .
 
 diam:GRICAD rdf:type diam:Partner ;
-    skos:prefLabel "Grenoble Alpes Research Scientific Computing and Data Infrastructure".
+    rdfs:comment "Grenoble Alpes Recherche - Infrastructure de Calcul intensif et de Données"@fr , "Grenoble Alpes Research Scientific Computing and Data Infrastructure"@en ;
+    skos:prefLabel "GRICAD" .
 
-diam:ILM  rdf:type diam:Partner ;
-    skos:prefLabel "The Institut Lumière Matière" .
+diam:ILM rdf:type diam:Partner ;
+    rdfs:comment "The Institut Lumière Matière"@fr ;
+    skos:prefLabel "iLM" .
 
 diam:CEA-LIST rdf:type diam:Partner ;
-    skos:prefLabel "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)" .
+    rdfs:comment "CEA-LIST (Laboratoire d'Intégration de Systèmes et des Technologies)"@fr ;
+    skos:prefLabel "CEA-LIST" .
     
 diam:CEA-MEM rdf:type diam:Partner ;
-    skos:prefLabel "CEA-MEM (Matter Exploration and Modeling)" .
+    rdfs:comment "CEA-MEM (Laboratoire Modélisation et Exploration des Matériaux)"@fr ,  "CEA-MEM (Matter Exploration and Modeling)"@en ; 
+    skos:prefLabel "CEA-MEM" .
 
 diam:CEA-LGLS rdf:type diam:Partner ;
-    skos:prefLabel "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)" .
+    rdfs:comment "CEA-LGLS (Laboratoire de Génie Logiciel pour la Simulation)"@fr ;
+    skos:prefLabel "CEA-LGLS" .
 
 diam:CEA-SRMP rdf:type diam:Partner ;
-    skos:prefLabel "CEA-SRMP (Service de Recherches de Métallurgie Physique)" .
-
+    rdfs:comment  "CEA-SRMP (Service de Recherches de Métallurgie Physique)"@fr ; 
+    skos:prefLabel "CEA-SRMP" .
 
 
 # ----> Tasks < ----
-
 #
 # Task 1.1 - Platform infrastructure (GRICAD)
 # 
@@ -839,5 +845,4 @@ diam:VMD rdf:type diam:Visualization ;
 diam:XCrySDen rdf:type diam:Visualization ;
     skos:prefLabel "XCrySDen" ;
     rdfs:comment "X-window CRYstalline Structures and DENsities - A crystalline and molecular structure visualization program for displaying isosurfaces, contours, and atomic structures, with support for various quantum chemistry and solid-state physics codes." .
-
 

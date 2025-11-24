@@ -17,7 +17,9 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl","name":"DIAMOND Project Ontology", "headline":"The DIAMOND Project Ontology provides a comprehensive semantic framework for representing the organizational structure, competences, resources, and outputs of the DIAMOND (DIgital Absolute MAterials simulatioN Database) project, part of the French PEPR DIADEM (Integrated Devices for Accelerating the Deployment of Emerging Materials)).     This ontology captures the key entities and relationships within the project, including work packages, partner institutions, personnel, scientific competences, computational resources, software tools, and research products. It is designed to facilitate knowledge management, enable semantic queries about project activities and outputs, and provide a machine-readable representation of the project's structure and deliverables.        The ontology supports the project's mission to develop open-access databases, containerized scientific software, automated workflows, and machine learning tools for materials science, while documenting the diverse expertise gathered across computational methods, data management, and artificial intelligence approaches in materials modeling.        By linking people to their competences, work packages to their products, and resources to their applications, this ontology serves as a living knowledge base that maps the DIAMOND project's contributions to the materials science community.", "dateReleased":"Mon Nov 24 14:25:35 CET 2025", "version":"0.1", "author":[{"@type":"Person","name":"Cinthya Herrera"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl","name":"DIAMOND Project Ontology", "headline":"The DIAMOND Project Ontology provides a comprehensive semantic framework for representing the organizational structure, competences, resources, and outputs of the DIAMOND (Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design) project, part of the French PEPR DIADEM (Integrated Devices for Accelerating the Deployment of Emerging Materials). This ontology captures the key entities and relationships within the project, including work packages, partner institutions, personnel, scientific competences, computational resources, software tools, and research products. 
+The ontology is designed to facilitate knowledge management, enable semantic queries about project activities and outputs, and provide a machine-readable representation of the project's structure and deliverables. It supports the project's mission to develop open-access databases, containerized scientific software, automated workflows, and machine learning tools for materials science, while documenting the diverse expertise gathered across computational methods, data management, and artificial intelligence approaches in materials modeling.
+By establishing formal relationships between people, their competences, work packages, tasks, and products, this ontology serves as a living knowledge base that maps the DIAMOND project's contributions to the computational materials science community and ensures long-term accessibility and reusability of project outcomes following FAIR data principles.", "dateReleased":"Mon Nov 24 14:25:35 CET 2025", "version":"0.1", "author":[{"@type":"Person","name":"Cinthya Herrera"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -89,20 +91,30 @@ $(function(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-The DIAMOND Project Ontology provides a comprehensive semantic framework for representing the organizational structure, competences, resources, and outputs of the DIAMOND (DIgital Absolute MAterials simulatioN Database) project, part of the French PEPR DIADEM (Integrated Devices for Accelerating the Deployment of Emerging Materials)).
-    
- This ontology captures the key entities and relationships within the project, including work packages, partner institutions, personnel, scientific competences, computational resources, software tools, and research products. It is designed to facilitate knowledge management, enable semantic queries about project activities and outputs, and provide a machine-readable representation of the project's structure and deliverables.
-    
-    The ontology supports the project's mission to develop open-access databases, containerized scientific software, automated workflows, and machine learning tools for materials science, while documenting the diverse expertise gathered across computational methods, data management, and artificial intelligence approaches in materials modeling.
-    
-    By linking people to their competences, work packages to their products, and resources to their applications, this ontology serves as a living knowledge base that maps the DIAMOND project's contributions to the materials science community.
+ The DIAMOND Project Ontology provides a comprehensive semantic framework for representing the organizational structure, competences, resources, and outputs of the DIAMOND (Data management and Infrastructures for Artificial intelligence, Modelling, Optimization and Numerical Design) project, part of the French PEPR DIADEM (Integrated Devices for Accelerating the Deployment of Emerging Materials). This ontology captures the key entities and relationships within the project, including work packages, partner institutions, personnel, scientific competences, computational resources, software tools, and research products. 
+The ontology is designed to facilitate knowledge management, enable semantic queries about project activities and outputs, and provide a machine-readable representation of the project's structure and deliverables. It supports the project's mission to develop open-access databases, containerized scientific software, automated workflows, and machine learning tools for materials science, while documenting the diverse expertise gathered across computational methods, data management, and artificial intelligence approaches in materials modeling.
+By establishing formal relationships between people, their competences, work packages, tasks, and products, this ontology serves as a living knowledge base that maps the DIAMOND project's contributions to the computational materials science community and ensures long-term accessibility and reusability of project outcomes following FAIR data principles.
 </span>
 </div>
 <div id="toc"></div> 
 
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">otros introductions</span>
+      <span class="markdown">
+The DIAMOND project operates within the PEPR DIADEM program, a flagship French research initiative aimed at advancing digital materials design through the integration of high-performance computing, artificial intelligence, and open science practices. Modern materials science projects involve complex collaborations across multiple institutions, diverse scientific competences, numerous software tools, and heterogeneous data products. Managing and communicating this complexity requires structured approaches that go beyond traditional documentation methods.
+The DIAMOND Project Ontology is designed to represent:
+- Organizational Infrastructure: The project hierarchy from the top-level DIAMOND entity through work packages to individual tasks, including partner institutions and their roles.
+- Human Resources: Work Packages in the project,  institutional affiliations, and their specific competences spanning computational methods, data management, and methodological approaches.
+- Competence Taxonomy: A hierarchical classification of expertise areas relevant to computational materials science, including containerization, machine learning interatomic potentials, workflow orchestration, database infrastructure, and domain-specific knowledge.
+- Resources and Tools: Software packages (open-source, commercial, and private), databases, containerized codes for scientific computing and visualization, and computational infrastructure.
+- Products and Deliverables: Tangible outputs including databases, web platforms, containerized scientific codes, AiiDA plugins, and workflow solutions.
+- Relationships: Formal connections between entities, such as which work packages gather which competences, which tasks produce which products, which people work on which tasks, and which tools are used for development.
+The ontology aims to answer questions such as:
+- What competences are required for each work package?
+- Which containerized codes are produced by WP1?
+- What software tools are used to develop the MLIP database?
+- Which institutions lead specific tasks within work packages?
+</span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
@@ -560,7 +572,7 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#MLIPDB"
          title="https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/main/ontology.ttl#MLIPDB">
-         <span>M L I P D B</span>
+         <span>MLIPDB</span>
       </a>
    </li>
    <li>
