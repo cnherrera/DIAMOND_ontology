@@ -1,5 +1,10 @@
-
 # Diamond Project Ontology
+
+https://cnherrera.github.io/DIAMOND_ontology/index-en.html
+
+# Ontology visualization
+https://cnherrera.github.io/DIAMOND_ontology/onto-viewer.html
+
 
 ## Overview
 
@@ -16,7 +21,8 @@ This ontology serves to:
 - Enable FAIR data practices: Support findable, accessible, interoperable, and reusable research data
 
 
+An extension to this ontology to capture the full PEPR DIADEM is ongoing
 
-## 
-Contact
+## Contact
+
 For questions or contributions to this ontology, please contact the DIAMOND project team through the project website: https://diamond-diadem.github.io/
