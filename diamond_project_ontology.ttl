@@ -5,13 +5,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix eurio:  <http://data.europa.eu/s66#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 @base <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl#> .
 
 <https://raw.githubusercontent.com/cnherrera/DIAMOND_ontology/refs/heads/main/diamond_project_ontology.ttl> rdf:type owl:Ontology ;
                                            rdfs:comment "Diamond Project Ontology - Initial Version" ;
                                            owl:versionInfo "0.1" .
-#					   owl:imports <http://data.europa.eu/s66> .
 
 
 #################################################################
@@ -30,36 +31,33 @@ skos:definition rdf:type owl:AnnotationProperty .
 diam:Project rdf:type owl:Class ;
     rdfs:label "Project";
     rdfs:comment """The foundational top-level class encompassing all conceptual 
-    and tangible entities pertinent to the DIAMOND project, under the DIADEM PEPR."""@en .
-#        "https://diamond-diadem.github.io/" ;
-
+    and tangible entities pertinent to the DIAMOND project, under the DIADEM PEPR."""@en ;
+    diam:hasURL "https://diamond-diadem.github.io/" .
 
 diam:Partner rdf:type owl:Class ;
-    rdfs:subClassOf diam:Contributor ;
-    rdfs:comment "Institution participating in the project" ;
+    rdfs:subClassOf diam:Organization ;
+    rdfs:comment "Institution participating in a project" ;
     rdfs:label "Partner" .
 
-#eurio:Person
 diam:Person rdf:type owl:Class ;
-    rdfs:subClassOf diam:Contributor ;
-    rdfs:comment "A person working on the project" ;
+    rdfs:comment "A person working on a project" ;
     rdfs:label "Person" .
 
 diam:Resource rdf:type owl:Class ;
-    rdfs:comment "Resources used or produced in the project" ;
+    rdfs:comment "Resources used or produced in a project" ;
     rdfs:label "Resource" .
 
 diam:WorkPackage rdf:type owl:Class ;
-    rdfs:comment "A work package within the project" ;
+    rdfs:comment "A work package within a project" ;
     rdfs:label "WorkPackage" .
 
 diam:Competence rdf:type owl:Class ;
     rdfs:comment "A specific skill or area of expertise" ;
     rdfs:label "Competence" .
 
-diam:Contributor rdf:type owl:Class ;
-    skos:prefLabel "Contributor" ;
-    rdfs:comment "A person or partner that contributes to a Work Package." .
+diam:Organization rdf:type owl:Class ;
+    rdfs:label   "Organization"@en , "Organisation"@fr ;
+    rdfs:comment "A legal or academic entity (laboratory, university, company, …)."@en .
 
 
 #---------------------------------------------
@@ -168,14 +166,14 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 #    Object Properties
 #################################################################
-diam:hasContributor rdf:type owl:ObjectProperty ;
+diam:hasPersonContributor rdf:type owl:ObjectProperty ;
     rdfs:domain diam:WorkPackage ;
-    rdfs:range diam:Contributor ;
+    rdfs:range diam:Person ;
     skos:prefLabel "has contributor" ;
     rdfs:comment "Indicates that a Work Package involves a person or partner as a contributor." .
 
-diam:isContributorOf rdf:type owl:ObjectProperty ;
-    rdfs:domain diam:Contributor ;
+diam:isPersonContributorOf rdf:type owl:ObjectProperty ;
+    rdfs:domain diam:Person ;
     rdfs:range diam:WorkPackage ;
     owl:inverseOf diam:hasContributor ;
     skos:prefLabel "is contributor of" .
@@ -200,13 +198,13 @@ diam:hasPartner rdf:type owl:ObjectProperty ;
  
 diam:employedBy rdf:type owl:ObjectProperty ;
     rdfs:domain diam:Person ;
-    rdfs:range diam:Partner ;
+    rdfs:range diam:Organization ;
     skos:prefLabel "employed by" ;
     owl:inverseOf diam:employs .
 
 diam:employs a owl:ObjectProperty ;
     skos:prefLabel "employs" ;
-    rdfs:domain diam:Partner ;
+    rdfs:domain diam:Organization ;
     rdfs:range diam:Person ;
     owl:inverseOf diam:employedBy .
 
@@ -246,10 +244,6 @@ diam:worksOn rdf:type owl:ObjectProperty ;
     rdfs:range diam:WorkPackage ;
     rdfs:comment "Relates a person to the work package they work on" ;
     rdfs:label "worksOn" .
-
-diam:partOf rdf:type owl:ObjectProperty ;
-    rdfs:domain owl:Thing ;
-    rdfs:range owl:Thing .
 
 diam:ledBy a owl:ObjectProperty ;
     rdfs:domain diam:WorkPackage ;
@@ -328,6 +322,21 @@ diam:taskName rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The name of the task" ;
     rdfs:label "taskName" .
+    
+###############################
+
+### --- Personnel Type Class ---
+diam:PersonnelType a owl:Class ;
+    rdfs:label "Personnel Type" ;
+    rdfs:comment "A category describing the type of personnel in a research project (e.g., Scientifique, Engineer, Postdoc)." .
+
+
+### --- hasPersonnelType Object Property ---
+diam:hasPersonnelType a owl:ObjectProperty ;
+    rdfs:label "has personnel type" ;
+    rdfs:comment "Links a Person to one or more PersonnelType categories." ;
+    rdfs:domain diam:Person ;
+    rdfs:range diam:PersonnelType .
 
 
 
@@ -335,7 +344,6 @@ diam:taskName rdf:type owl:DatatypeProperty ;
 #    Data properties
 #################################################################
 
-###  To be checked!!!!!!!!!!!!!!!!!!!!!
 diam:comment rdf:type owl:DatatypeProperty ;
          rdfs:domain diam:Resource ;
          rdfs:range xsd:string ;
@@ -355,6 +363,7 @@ diam:email rdf:type owl:DatatypeProperty ;
        rdfs:label "email" .
 
 diam:endDate rdf:type owl:DatatypeProperty ;
+#        rdf:subclassOf eurio:endDate ;
          rdfs:domain diam:Project ;
          rdfs:range xsd:date ;
          rdfs:comment "The end date of the project" ;
@@ -378,15 +387,39 @@ diam:hasURL rdf:type owl:DatatypeProperty ;
     skos:prefLabel "has URL" .
 
 
+diam:personnel_type rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "personnel type" .
+
+diam:joinDate rdf:type owl:DatatypeProperty ;
+        rdfs:domain diam:Person ;
+        rdfs:range xsd:gYearMonth ;
+        rdfs:comment "Date when the person joined the project" ;
+        rdfs:label "join date" .
+
+diam:leftDate rdf:type owl:DatatypeProperty ;
+        rdfs:domain diam:Person ;
+        rdfs:range xsd:gYearMonth ;
+        rdfs:comment "Date when the person left the project" ;
+        rdfs:label "left date" .
+
+diam:isCurrentMember rdf:type owl:DatatypeProperty ;
+    rdfs:domain diam:Person ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "is current member" ;
+    rdfs:comment "Indicates if the person is currently active in the project." .
+
 
 
 #################################################################
-#    Canonical Instances of the DIAMOND project
+#     Instances of the DIAMOND project
 #################################################################
 
 diam:Diamond rdf:type diam:Project ;
     rdfs:label "DIAMOND Project" ;
-    skos:prefLabel "Ontology representing all entities of the DIAMOND project" .
+    diam:hasWorkPackage diam:WP1 , diam:WP2 , diam:WP3 ;
+    rdfs:comment "Ontology representing all entities of the DIAMOND project" .
 
 
 # ----> Instances of WPs <----
@@ -414,7 +447,7 @@ diam:WP1 rdf:type diam:WorkPackage ;
                   diam:ledBy diam:SIMAP ;
     diam:coLedBy diam:ILM , diam:IMPMC ;
     rdfs:comment "Development of the code and workflow platform for the DIAMOND project." ;
-    skos:prefLabel "WP1" .
+    skos:prefLabel "WP1 - Codes and Workflows" .
 
 diam:WP2 rdf:type diam:WorkPackage ;
     diam:partOf diam:Diamond ;
@@ -429,7 +462,7 @@ diam:WP2 rdf:type diam:WorkPackage ;
     diam:ledBy diam:CEA-MEM ;
     diam:coLedBy diam:CEA-LIST ;
     rdfs:comment "Design and implementation of data management infrastructure for the DIAMOND project" ;
-    skos:prefLabel "WP2" .
+    skos:prefLabel "WP2 - Data Management" .
 
 
 diam:WP3 rdf:type diam:WorkPackage ;
@@ -448,8 +481,26 @@ diam:WP3 rdf:type diam:WorkPackage ;
     diam:ledBy diam:IMPMC ;
     diam:coLedBy diam:SIMAP ;
     rdfs:comment "Machine-learning Interatomic-potential demonstrator. Delivers an open-access repository of MLPs, builds a platform for MLP development including automated training dataset generation, common interface for MLP packages, and containerized workflow solutions." ;
-    skos:prefLabel "WP3" .
+    skos:prefLabel "WP3 - MLIP demonstrator" .
     
+###########################################
+### --- Personnel Type Instances ---
+
+diam:Scientific rdf:type diam:PersonnelType ;
+    rdfs:label "Scientific"@en , "Scientifique"@fr ;
+    rdfs:comment "A scientific contributor in the project." .
+
+diam:ScientificResponsable rdf:type diam:PersonnelType ;
+    rdfs:label "Scientific Responsable"@en , "Responsable Scientifique"@fr ;
+    rdfs:comment "A scientific lead or responsible person within the project." .
+
+diam:Engineer rdf:type diam:PersonnelType ;
+    rdfs:label "Engineer"@en , "Ingénieur"@fr ;
+    rdfs:comment "An engineer contributing to the project." .
+
+diam:ProjectCoordinator rdf:type diam:PersonnelType ;
+    rdfs:label "Project Coordinator"@en , "Coordinateur de Projet"@fr ;
+    rdfs:comment "A coordinator overseeing project activities and organization." .
 
 ################################################################
 # Tasks
@@ -701,6 +752,17 @@ diam:CEA-SRMP rdf:type diam:Partner ;
     rdfs:comment  "CEA-SRMP (Service de Recherches de Métallurgie Physique)"@fr ; 
     skos:prefLabel "CEA-SRMP" .
 
+diam:GrenobleINP rdf:type diam:Partner ;
+    rdfs:comment "Grenoble INP";
+    skos:prefLabel "Grenoble INP" .
+
+diam:Sorbonne rdf:type diam:Partner ;
+    rdfs:comment "Sorbonne Universite" ;
+    skos:prefLabel "Sorbonne University" .
+
+diam:CNRS rdf:type diam:Partner .
+
+diam:CEASaclay rdf:type diam:Partner .
 
 # ----> Tasks < ----
 #
@@ -846,3 +908,357 @@ diam:XCrySDen rdf:type diam:Visualization ;
     skos:prefLabel "XCrySDen" ;
     rdfs:comment "X-window CRYstalline Structures and DENsities - A crystalline and molecular structure visualization program for displaying isosurfaces, contours, and atomic structures, with support for various quantum chemistry and solid-state physics codes." .
 
+##################################################
+# People
+#################################################
+
+diam:JPADM rdf:type diam:Person ;
+    foaf:givenName "Joao Paulo" ;
+    foaf:familyName "Almeida de Mendonca" ;
+    foaf:name "Joao Paulo Almeida de Mendoca" ;
+    foaf:mbox <mailto:joao-paulo.almeida-de-mendonca@grenoble-inp.fr> ;
+    diam:employedBy diam:SIMAP ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:hasCompetence diam:AIApproaches ;
+    diam:joinDate "January 2024" ;
+#    diam:leftDate "December 2027" ; 
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/joao-paulo-almeida/> ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=KtS3vY4AAAAJ> ;
+    rdfs:seeAlso <https://www.linkedin.com/in/jo%C3%A3o-paulo-almeida-de-mendon%C3%A7a-574598b1/> ;
+    diam:isCurrentMember true .
+
+diam:NJ rdf:type diam:Person ;
+    foaf:givenName "Noël" ;
+    foaf:familyName "Jakse" ;
+    foaf:name "Noël Jakse" ;
+    foaf:mbox <mailto:noel.jakse@grenoble-inp.fr> ;
+    diam:employedBy diam:GrenobleINP ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:ProjectCoordinator , diam:ScientificResponsable ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/no-l-jakse/> .
+
+diam:FW rdf:type diam:Person ;
+    foaf:givenName "François" ;
+    foaf:familyName "Willaime" ;
+    foaf:name "François Willaime" ;
+    foaf:mbox <mailto:francois.willaime@cea.fr> ;
+    diam:employedBy diam:CEA-LGLS ;
+    diam:worksOn diam:Diamond ;
+    diam:hasPersonnelType diam:ProjectCoordinator ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/fran-ois-willaime/> .
+
+diam:MS rdf:type diam:Person ;
+    foaf:givenName "Marco" ;
+    foaf:familyName "Saitta" ;
+    foaf:name "A. Marco Saitta" ;
+    foaf:mbox <mailto:marco.saitta@sorbonne-universite.fr> ;
+    diam:employedBy "Sorbonne Université" ;
+    diam:worksOn diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific , diam:ScientificResponsable ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/marco-saitta/> .
+
+diam:VB rdf:type diam:Person ;
+    foaf:givenName "Vincent" ;
+    foaf:familyName "Bergeaud" ;
+    foaf:name "Vincent Bergeaud" ;
+    foaf:mbox <mailto:vincent.bergeaud@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/vincent-bergeaud/> .
+
+diam:TD rdf:type diam:Person ;
+    foaf:givenName "Thierry" ;
+    foaf:familyName "Deutsch" ;
+    foaf:name "Thierry Deutsch" ; 
+    foaf:mbox <mailto:thierry.deutsch@cea.fr> ;
+    diam:employedBy diam:CEA-MEM ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Scientific , diam:ScientificResponsable  ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/thierry-deutsch/> .
+
+diam:DR rdf:type diam:Person ;
+    foaf:givenName "David" ;
+    foaf:familyName "Rodney" ;
+    foaf:name "David Rodney" ;
+    foaf:mbox <mailto:david.rodney@univ-lyon1.fr> ;
+    diam:employedBy diam:ILM ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/david-rodney/> .
+
+diam:JPP rdf:type diam:Person ;
+    foaf:givenName "Jean-Philippe" ;
+    foaf:familyName "Poli" ;
+    foaf:name "Jean-Philippe Poli" ;
+    foaf:mbox <mailto:jean-philippe.poli@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Scientific .
+
+diam:PAB rdf:type diam:Person ;
+    foaf:givenName "Pierre-Antoine" ;
+    foaf:familyName "Bouttier" ;
+    foaf:name "Pierre-Antoine Bouttier" ;
+    foaf:mbox <mailto:pierre-antoine.bouttier@univ-grenoble-alpes.fr> ;
+    diam:employedBy diam:GRICAD , diam:CNRS ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://www.linkedin.com/in/pierre-antoine-bouttier/> .
+
+diam:NICOLAS_CROUZET rdf:type diam:Person ;
+    foaf:givenName "Nicolas" ;
+    foaf:familyName "Crouzet" ;
+    foaf:name "Nicolas Crouzet" ;
+    foaf:mbox <mailto:nicolas.crouzet@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+    
+diam:JONATHAN_DAUBIN rdf:type diam:Person ;
+    foaf:givenName "Jonathan" ;
+    foaf:familyName "Daubin" ;
+    foaf:name "Jonathan Daubin" ;
+    foaf:mbox <mailto:jonathan.daubin@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+   
+diam:NILS_KASCH rdf:type diam:Person ;
+    foaf:givenName "Nils" ;
+    foaf:familyName "Kasch" ;
+    foaf:name "Nils Kasch" ;
+    diam:joinDate "Mars 2025" ;
+#    diam:leftDate "October 2026" ;     
+    foaf:mbox <mailto:nils.kasch@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <www.linkedin.com/in/nils-kasch> .
+
+diam:LORENZO_PAULATTO rdf:type diam:Person ;
+    foaf:givenName "Lorenzo" ;
+    foaf:familyName "Paulatto" ;
+    foaf:name "Lorenzo Paulatto" ;
+    foaf:mbox <mailto:Lorenzo.paulatto@sorbonne-universite.fr> ;
+    diam:employedBy diam:Sorbonne ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific .
+
+diam:IRINA_PIAZZA rdf:type diam:Person ;
+    foaf:givenName "Irina" ;
+    foaf:familyName "Piazza" ;
+    foaf:name "Irina Piazza" ;
+    diam:joinDate "December 2024" ;
+#    diam:leftDate "November 2028" ;
+    foaf:mbox <mailto:irina.piazza@grenoble-inp.fr> ;
+    diam:employedBy diam:SIMAP ;
+    diam:worksOn diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=BlPP-x4AAAAJ&hl=fr&oi=ao> ;
+    rdfs:seeAlso <https://www.linkedin.com/in/irina-piazza/> .
+
+diam:DORIAN_ROLLAND rdf:type diam:Person ;
+    foaf:givenName "Dorian" ;
+    foaf:familyName "Rolland" ;
+    foaf:name "Dorian Rolland" ;
+    foaf:mbox <mailto:dorian.rolland@cea.fr> ;
+    diam:employedBy diam:CEA-MEM ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Engineer ;
+    diam:isCurrentMember true .
+   
+
+diam:MARTIN_UHRIN rdf:type diam:Person ;
+    foaf:givenName "Martin" ;
+    foaf:familyName "Uhrin" ;
+    foaf:name "Martin Uhrin" ;
+    foaf:mbox <mailto:martin.uhrin@grenoble-inp.fr> ;
+    diam:employedBy diam:SIMAP ;
+    diam:worksOn diam:WP1, diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember true .
+
+diam:AADHITYAN_ARIVAZHAGAN rdf:type diam:Person ;
+    foaf:givenName "Aadhityan" ;
+    foaf:familyName "Arivazhagan" ;
+    foaf:name "Aadhityan Arivazhagan" ;
+    diam:joinDate "September 2024" ;
+#    diam:leftDate "August 2026" ;
+    foaf:mbox <mailto:aadhityan.arivazhagan@sorbonne-universite.fr> ;
+    diam:employedBy diam:Sorbonne ;
+    diam:worksOn diam:WP1 ; #WP3 too??
+    diam:hasPersonnelType diam:Scientific .
+
+diam:OMAR_BENYAHYA rdf:type diam:Person ;
+    foaf:givenName "Omar" ;
+    foaf:familyName "Benyahya" ;
+    foaf:name "Omar Benyahya" ;
+    diam:joinDate "October 2024" ;
+#    diam:leftDate "October 2027" ;
+    foaf:mbox <mailto:omar.benyahya@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+
+diam:AHMED_AMRANI rdf:type diam:Person ;
+    foaf:givenName "Ahmed" ;
+    foaf:familyName "Amrani" ;
+    foaf:name "Ahmed Amrani" ;
+    foaf:mbox <mailto:ahmed.amrani@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+    
+diam:ARAWINTH_CAMATCHY rdf:type diam:Person ;
+    foaf:givenName "Arawinth" ;
+    foaf:familyName "Camatchy" ;
+    foaf:name "Arawinth Camatchy" ;
+    foaf:mbox <mailto:arawinth.camatchy@cea.fr> ;
+    diam:employedBy "CEA Grenoble" ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember true .
+    
+diam:IMANOL_SETOAIN rdf:type diam:Person ;
+    foaf:givenName "Imanol" ;
+    foaf:familyName "Setoain" ;
+    foaf:name "Imanol Setoain" ;
+    foaf:mbox <mailto:imanol.setoain@cea.fr> ;
+    diam:employedBy diam:CEA-LIST ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Engineer .
+
+diam:NICOLA_VIGANO rdf:type diam:Person ;
+    foaf:givenName "Nicola" ;
+    foaf:familyName "Vigano" ;
+    foaf:name "Nicola Vigano" ;
+    foaf:mbox <mailto:nicola.vigano@cea.fr> ;
+    diam:employedBy diam:CEA-MEM ;
+    diam:worksOn diam:WP2 ;
+    diam:project "DIAMOND" ;
+    diam:hasPersonnelType diam:Scientific .
+
+diam:CINTHYA_HERRERA rdf:type diam:Person ;
+    foaf:givenName "Cinthya" ;
+    foaf:familyName "Herrera" ;
+    foaf:name "Cinthya Herrera Contreras" ;
+    foaf:mbox <mailto:cinthya.herreracontreras@cea.fr> ;
+    diam:employedBy diam:CEA-MEM ;
+    diam:hasCompetence diam:MetadataStandardization , diam:LargeScaleWorkflows ;
+    diam:worksOn diam:WP2 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:joinDate "May 2024" ;
+    #diam:leftDate "May 2027" ;
+    rdfs:seeAlso <https://www.linkedin.com/in/cinthyaherrera/> ;
+    rdfs:seeAlso <https://diamond-diadem.github.io/team/cinthya-herrera/> .
+
+diam:MIHAI_COSMIN_MARINICA rdf:type diam:Person ;
+    foaf:givenName "Mihai-Cosmin" ;
+    foaf:familyName "Marinica" ;
+    foaf:name "Mihai-Cosmin Marinica" ;
+    foaf:mbox <mailto:cosmin.marinica@cea.fr> ;
+    diam:employedBy diam:CEA-LGLS ;
+    diam:worksOn diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific .
+
+diam:ANRUO_ZHONG rdf:type diam:Person ;
+    foaf:givenName "Anruo" ;
+    foaf:familyName "Zhong" ;
+    foaf:mbox <mailto:Anruo.ZHONG@cea.fr> ;
+    diam:worksOn diam:WP3 ;
+    diam:joinDate "Mars 2025" ;
+    #diam:leftDate "Mars 2028" ;
+    diam:hasPersonnelType diam:Scientific .
+    
+diam:ARTHUR_FRANCE_LANORD rdf:type diam:Person ;
+    foaf:givenName "Arthur" ;
+    foaf:familyName "France-Lanord" ;
+    foaf:name "Arthur France-Lanord" ;
+    foaf:mbox <mailto:arthur.france-lanord@sorbonne-universite.fr> ;
+    diam:employedBy "Sorbonne Université" ;
+    diam:worksOn diam:WP3 ;
+    diam:hasPersonnelType diam:Scientific .
+
+diam:AKSHAY_AMMOTHUM_KANDY rdf:type diam:Person ;
+    foaf:givenName "Akshay" ;
+    foaf:familyName "Ammothum kandy" ;
+    foaf:name "Akshay Ammothum kandy" ;
+    foaf:mbox <mailto:akshaykrishnaak9@gmail.com> ;
+    diam:employedBy diam:IMPMC , diam:Sorbonne ;
+    diam:worksOn diam:WP3 ;
+    diam:joinDate "November 2023" ;
+    #diam:leftDate "October 2026" ;
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://scholar.google.com/citations?user=iE9GGREAAAAJ&hl=sv> ;
+    rdfs:seeAlso <www.linkedin.com/in/aksam432> .
+
+diam:LEO_ORVEILLON rdf:type diam:Person ;
+    foaf:givenName "Léo" ;
+    foaf:familyName "Orveillon" ;
+    foaf:name "Leo Orveillon" ;
+    foaf:mbox <mailto:leo.orveillon@univ-grenoble-alpes.fr> ;
+    diam:employedBy diam:GRICAD ;
+    diam:worksOn diam:WP1 ;
+    diam:joinDate "April 2025" ;
+    #diam:leftDate "Mars 2027" ;    
+    diam:hasPersonnelType diam:Scientific ;
+    rdfs:seeAlso <https://www.linkedin.com/in/leo-orveillon/> .
+
+
+
+# Previous members
+
+diam:BA rdf:type diam:Person ;
+    foaf:givenName "Benjamin" ;
+    foaf:familyName "Arrondeau" ;
+    foaf:name "Benjamin Arrondeau" ;
+    diam:joinDate "February 2024" ;
+    diam:leftDate "January 2026" ; 
+    foaf:mbox <mailto:benjamin.arrondeau@univ-grenoble-alpes.fr> ;
+    diam:employedBy diam:GRICAD ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+diam:ADRIEN_BRUNETON rdf:type diam:Person ;
+    foaf:givenName "Adrien" ;
+    foaf:familyName "Bruneton" ;
+    foaf:name "Adrien Bruneton" ;
+    foaf:mbox <mailto:adrien.bruneton@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+diam:GEOFFREY_DANIEL rdf:type diam:Person ;
+    foaf:givenName "Geoffrey" ;
+    foaf:familyName "Daniel" ;
+    foaf:name "Geoffrey Daniel" ;
+    foaf:mbox <mailto:geoffrey.daniel@cea.fr> ;
+    diam:employedBy diam:CEASaclay ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+diam:DAVID_MARTIN_CALLE rdf:type diam:Person ;
+    foaf:givenName "David" ;
+    foaf:familyName "Martin-Calle" ;
+    foaf:name "David Martin-Calle" ;
+    diam:joinDate "November 2023" ;
+    diam:leftDate "November 2025" ;  
+    foaf:mbox <mailto:david.martin-calle@univ-lyon1.fr> ;
+    diam:employedBy diam:ILM ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
+
+diam:D_BISSUEL rdf:type diam:Person ;
+    foaf:givenName "Bissuel" ;
+    foaf:familyName "Dylan" ;
+    foaf:name "Dylan Bissuel" ;
+    diam:employedBy diam:iLM ;
+    diam:worksOn diam:WP1 ;
+    diam:hasPersonnelType diam:Scientific ;
+    diam:isCurrentMember false .
