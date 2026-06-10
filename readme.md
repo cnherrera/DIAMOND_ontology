@@ -1,9 +1,11 @@
-# Diamond Project Ontology
-
-https://cnherrera.github.io/DIAMOND_ontology/index-en.html
 
 # Ontology visualization
 https://cnherrera.github.io/DIAMOND_ontology/onto-viewer.html
+
+
+# Diamond Project Ontology Widoco -> in construction
+
+https://cnherrera.github.io/DIAMOND_ontology/index-en.html
 
 
 ## Overview
