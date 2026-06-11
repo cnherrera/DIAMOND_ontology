@@ -1487,25 +1487,35 @@ const LAYOUTS = {
         animate: true, animationDuration: 450
     },
     cose: {
-        name: 'cose',
-	idealEdgeLength: 100,
-	nodeOverlap: 20,
-	gravity: 0.2,
-	animate: true,
-	numIter: 1000,
-	padding: 30,
-	animationDuration: 700,
-	randomize: true,
-	fit: true
-    },
-    circle: {
-        name: 'circle',
-        animate: true, animationDuration: 400
-    },
-    grid: {
-        name: 'grid',
-        animate: true, animationDuration: 400
-    }
+    name: 'cose',
+    idealEdgeLength: 100,
+    nodeOverlap: 20,
+    
+    // 1. ADD THIS: This acts like magnets pushing the nodes away from each other
+    nodeRepulsion: function(node) { return 800000; }, 
+    
+    // 2. ADD THIS: Puts a strict minimum pixel distance between disconnected components
+    componentSpacing: 100, 
+    
+    gravity: 0.2, // Good! Keeps things loose, but needs high repulsion to balance it
+    animate: true,
+    numIter: 1000,
+    padding: 30,
+    animationDuration: 700,
+    randomize: true,
+    fit: true
+},
+circle: {
+    name: 'circle',
+    animate: true, 
+    animationDuration: 400
+},
+grid: {
+    name: 'grid',
+    animate: true, 
+    animationDuration: 400
+}
+
 };
 
 function applyLayout(name) {
